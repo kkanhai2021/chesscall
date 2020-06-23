@@ -1,3 +1,12 @@
+const https = require('https');
+const fs = require('fs');
+
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
+
+
 var express = require('express');
 var app = express();
 var http = require('http').createServer(app);
@@ -49,10 +58,8 @@ io.on('connection', (socket) => {
   });
 });
  
-http.listen(3000, () => {
-  console.log('listening on port: 3000');
-});
-
-
+https.createServer(options, function (req, res) {
+  
+}).listen(3000);
 
 
