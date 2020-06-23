@@ -1,0 +1,331 @@
+
+.teacherboard{ 
+    padding-top: 150px;
+    margin: auto; 
+
+
+}
+
+
+.undomove{ 
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    
+    
+    margin-left: 10px;
+}
+.undomove:hover{
+    
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    
+}
+
+
+.clearboard{
+	margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    
+}
+.clearboard:hover {
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+
+        
+
+.flipboard{
+	margin-left: 10px;
+    margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+.flipboard:hover {
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+
+.startpos{
+    margin-left: 10px;
+    margin-left: 10px;
+    margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+.startpos:hover {
+	color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+.centerbuttons { 
+    text-align:center; 
+    font-family:'MuseoModerno', cursive;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body, html {
+
+    height: 100%;
+}
+
+#videos {
+    padding-top: 0px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: auto;
+    
+}
+
+#subscriber {
+    position: absolute;
+    width: 360px;
+    height: 520px;
+    bottom: 50px;
+    left: 30px;
+    z-index: 100;
+    border: 3px solid black;
+    border-radius: 3px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#publisher {
+    position: absolute;
+    width: 360px;
+    height: 245px;
+    bottom: 110px;
+    left: 30px;
+    z-index: 100;
+    border: 3px solid black;
+    border-radius: 3px;
+    margin-bottom: 200px;
+    visibility:hidden;
+    
+
+}
+
+.startRoom { 
+
+    margin:0 auto;
+    display:block;
+    margin-top: 20px;
+    
+    
+     
+}
+.centered { 
+    
+    margin:0px auto;
+    display:block;
+    
+    
+
+}
+
+.chatElement { 
+    position: relative;
+    padding-top:100px;
+    max-width: 400px;
+    max-height: 600px;
+    height: 550px;
+    overflow: scroll;
+    right:-990px;
+    top: -590px;
+    outline-style: solid;
+    outline-color:  #000;
+    overflow-y: hidden;
+}
+.contain {
+    
+    background-color: #f1f1f1;
+    
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 400px;
+   
+    
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+    max-width:400px;
+    padding: 10px;
+    
+  }
+  
+  /* Clear floats */
+  .contain::after {
+    content: "";
+    clear: both;
+    display: table;
+    max-width:400px;
+  }
+
+.msgBox { 
+    position: absolute;
+    bottom: 0;
+    left:0;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family:'MuseoModerno', cursive;
+    margin-left: 3px;
+}
+.sendMessageBtn { 
+    position: absolute; 
+    bottom: 0;
+    right: 0;
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    padding-top:19px;
+    margin-right:3px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.joinARoom { 
+    text-align:center; 
+    padding-top: 20px;
+    font-family:'MuseoModerno', cursive;
+}
+
+#roomName { 
+    border-color: black;
+    border-width: 3px;
+    padding:7px;
+    
+}
+

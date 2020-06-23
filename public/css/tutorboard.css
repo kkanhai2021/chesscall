@@ -1,0 +1,406 @@
+
+.teacherboard{ 
+    padding-top: 100px;
+    margin: auto; 
+    padding-left: 10px;
+
+}
+
+.roomname { 
+    text-align: center;
+    
+    color:#333333; 
+    
+}
+
+.undomove{ 
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    
+    margin-left: 10px;
+    font-family: 'MuseoModerno', cursive;
+}
+.undomove:hover{
+    
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+
+.clearboard{
+	margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    
+    
+}
+.clearboard:hover {
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    
+}
+
+
+        
+
+.flipboard{
+	margin-left: 10px;
+    margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+.flipboard:hover {
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+
+.startpos{
+    margin-left: 10px;
+    margin-left: 10px;
+    margin-left: 10px;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+.startpos:hover {
+	color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+.centerbuttons { 
+    text-align:center; 
+    font-family: 'MuseoModerno', cursive;
+
+}
+
+
+#megadodoo { 
+
+   
+    
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    margin-top: 10px;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body, html {
+
+    height: 100%;
+}
+
+#videos {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-left: 20px;
+    margin-right: auto;
+    margin-bottom: 0px;
+}
+
+#subscriber {
+    position: absolute;
+    width: 360px;
+    height: 240px;
+    bottom: 10px;
+    left: 30px;
+    z-index: 100;
+    border: 3px solid black;
+    border-radius: 3px;
+}
+
+#publisher {
+    position: absolute;
+    width: 360px;
+    height: 240px;
+    bottom: 110px;
+    left: 30px;
+    z-index: 100;
+    border: 3px solid black;
+    border-radius: 3px;
+    margin-bottom: 200px;
+}
+
+.startRoom { 
+
+    margin:0 auto;
+    display:block;
+    margin-top: 20px;
+    
+    
+     
+}
+.centered { 
+    
+    margin:0px auto;
+    display:block;
+    
+    
+
+}
+
+.chatElement { 
+    position: relative;
+    max-width: 400px;
+    max-height: 600px;
+    height: 550px;
+    overflow: scroll;
+    right:-990px;
+    top: -590px;
+    outline-style: solid;
+    outline-color:  #000;
+    overflow-y: hidden;
+}
+.contain {
+    
+    background-color: #f1f1f1;
+    
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 400px;
+   
+    
+  }
+  
+  /* Darker chat container */
+  .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+    max-width:400px;
+    padding: 10px;
+    
+  }
+  
+  /* Clear floats */
+  .contain::after {
+    content: "";
+    clear: both;
+    display: table;
+    max-width:400px;
+  }
+
+.msgBox { 
+    position: absolute;
+    bottom: 0;
+    left:0;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 8px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family:'MuseoModerno', cursive;
+    margin-left: 3px;
+}
+.sendMessageBtn { 
+    
+    position: absolute; 
+    bottom: 0;
+    right: 0;
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    padding-top:19px;
+    margin-right:3px;
+    
+
+}
+.popup .overlay {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+  }
+  
+  .popup .content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:500px;
+    height:250px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+  }
+  
+  .popup .close-btn {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+  }
+  
+  .popup.active .overlay {
+    display:block;
+  }
+  
+  .popup.active .content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+#setPosBtn{ 
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 5px;
+    border: 4px solid #000000 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    
+    margin-left: 3px;
+    font-family: 'MuseoModerno', cursive;
+}
+#setPosBtn:hover{
+    
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    
+}
+
+.fen{ 
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    padding-top:5px;
+
+}
+#fen { 
+    border: 4px solid #000000 !important;
+    padding: 4px;
+
+}
