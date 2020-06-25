@@ -1,7 +1,7 @@
 
 var express = require('express');
 var app = express();
-const http = require('http').createServer(app);
+const http = require('http');
 var https = require('https');
 var io = require('socket.io')(http)
 const fs = require('fs');
@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
   });
 });
  
-const httpServer = http
+const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(90, () => {
