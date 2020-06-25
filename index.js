@@ -1,4 +1,4 @@
-var app = require('express')();
+var app = require('express');
 var https = require('https');
 var io = require('socket.io')(https);
 
@@ -18,18 +18,18 @@ const credentials = {
 };
 
 // app.use(express.static(__dirname + '/public'));
-app.get('/', (req, res) => {
+express.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
   
 
 });
 
-app.get('/tutorboard.html', (req, res) => {
+express.get('/tutorboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/tutorboard.html');
   
 });
 
-app.get('/studentboard.html', (req, res) => {
+express.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
