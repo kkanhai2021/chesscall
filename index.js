@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 const http = require('http');
 var https = require('https');
-var io = require('socket.io')(https);
+var io = require('socket.io')(http);
 const fs = require('fs');
 var PORT = process.env.PORT || 3000;
 
