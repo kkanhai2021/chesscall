@@ -1,4 +1,4 @@
-var PORT = process.env.PORT || 3000;
+
 var express = require('express');
 var app = express();
 const http = require('http');
@@ -65,6 +65,6 @@ httpServer.listen(90, () => {
 	console.log('HTTP Server running on port 80');
 });
 
-httpsServer.listen(3000, () => {
+httpsServer.listen(443, () => {
 	console.log('HTTPS Server running on port 443');
 });
