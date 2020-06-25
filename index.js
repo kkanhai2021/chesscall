@@ -1,7 +1,7 @@
 var PORT = process.env.PORT || 3000;
 var express = require('express');
 var app = express();
-var https = require('https').createServer(app);
+var https = require('https');
 var io = require('socket.io')(https);
 const fs = require('fs');
 var PORT = process.env.PORT || 3000;
