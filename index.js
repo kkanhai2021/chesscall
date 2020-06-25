@@ -1,13 +1,12 @@
-var app = require('express');
 var https = require('https');
-var io = require('socket.io')(https);
+var fs = require('fs');
+var express = require('express');
 
+var privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem').toString();
+var certificate = fs.readFileSync('=/etc/letsencrypt/live/chesscall.com/cert.pem').toString();
+var ca = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/chain.pem').toString();
 
-
-const fs = require('fs');
-var PORT = process.env.PORT || 3000;
-
-
+/*
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem', 'utf8');
 const ca = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/chain.pem', 'utf8');
@@ -16,22 +15,30 @@ const credentials = {
 	cert: certificate,
 	ca: ca
 };
-
-// app.use(express.static(__dirname + '/public'));
-express.get('/', (req, res) => {
+*/
+var app = express.createServer({key:privateKey,cert:certificate,ca:ca });
+app.use(express.static(__dirname + '/public'));
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
   
 
 });
 
-express.get('/tutorboard.html', (req, res) => {
+app.get('/tutorboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/tutorboard.html');
   
 });
 
-express.get('/studentboard.html', (req, res) => {
+app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
+
+app.listen(3000, function () {
+  var addr = app.address();
+  console.log('   app listening on http://' + addr.address + ':' + addr.port);
+});
+
+var io = sio.listen(app,{key:privateKey,cert:certificate,ca:ca});
 
 io.on('connection', (socket) => {
   console.log('a user connected');
@@ -58,6 +65,9 @@ io.on('connection', (socket) => {
   });
 });
  
+
+
+/*
 // const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 /*
@@ -65,6 +75,8 @@ httpServer.listen(90, () => {
 	console.log('HTTP Server running on port 80');
 });
 */
+/*
 https.listen(3000, () => {
 	console.log('HTTPS Server running on port 3000');
 });
+*/
