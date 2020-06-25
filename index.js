@@ -1,12 +1,16 @@
 var PORT = process.env.PORT || 3000;
 var express = require('express');
 var app = express();
-var http = require('http').createServer(app);
+var https = require('https').createServer(app);
 var io = require('socket.io')(http);
+const fs = require('fs');
 var PORT = process.env.PORT || 3000;
 
 
-
+const options = {
+  key: fs.readFileSync('key.pem'),
+  cert: fs.readFileSync('cert.pem')
+};
 
 
 app.use(express.static(__dirname + '/public'));
@@ -50,10 +54,8 @@ io.on('connection', (socket) => {
   });
 });
  
-http.listen(PORT, () => {
-  console.log('listening on port: 3000');
-});
-
-
+https.createServer(options, function (req, res) {
+  
+}).listen(3000);
 
 
