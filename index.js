@@ -8,7 +8,7 @@ var server = https.createServer({
 server.listen(3000);
 
 var io = require('socket.io').listen(server);
-
+app.use(express.static('public'));
 /*
 var privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem').toString();
 var certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem').toString();
