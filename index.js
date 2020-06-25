@@ -1,12 +1,19 @@
-var https = require('https');
-var fs = require('fs');
-var express = require('express')
-  , sio = require('socket.io');
+var fs = require( 'fs' );
+var app = require('express')();
+var https  = require('https');
+var server = https.createServer({ 
+  key: fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem') 
+},app);
+server.listen(8080);
 
+var io = require('socket.io').listen(server);
+
+/*
 var privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem').toString();
 var certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem').toString();
 var ca = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/chain.pem').toString();
-
+*/
 /*
 const privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem', 'utf8');
 const certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem', 'utf8');
@@ -17,7 +24,7 @@ const credentials = {
 	ca: ca
 };
 */
-var app = express.createServer({key:privateKey,cert:certificate,ca:ca });
+
 app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
@@ -34,12 +41,8 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-app.listen(3000, function () {
-  var addr = app.address();
-  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-});
 
-var io = sio.listen(app,{key:privateKey,cert:certificate,ca:ca});
+
 
 io.on('connection', (socket) => {
   console.log('a user connected');
