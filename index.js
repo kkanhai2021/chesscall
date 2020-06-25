@@ -1,9 +1,9 @@
+var app = require('express')();
+var https = require('https').createServer(app);
+var io = require('socket.io')(https);
 
-var express = require('express');
-var app = express();
-const http = require('http');
-var https = require('https');
-var io = require('socket.io').listen(80);
+
+
 const fs = require('fs');
 var PORT = process.env.PORT || 3000;
 
@@ -58,13 +58,13 @@ io.on('connection', (socket) => {
   });
 });
  
-const httpServer = http.createServer(app);
-const httpsServer = https.createServer(credentials, app);
+// const httpServer = http.createServer(app);
+//const httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(90, () => {
 	console.log('HTTP Server running on port 80');
 });
 
-httpsServer.listen(3000, () => {
+https.listen(3000, () => {
 	console.log('HTTPS Server running on port 3000');
 });
