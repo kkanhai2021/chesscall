@@ -66,5 +66,5 @@ httpServer.listen(90, () => {
 });
 
 httpsServer.listen(3000, () => {
-	console.log('HTTPS Server running on port 443');
+	console.log('HTTPS Server running on port 3000');
 });
