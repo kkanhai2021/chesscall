@@ -5,7 +5,7 @@ var server = https.createServer({
   key: fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem'),
   cert: fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem') 
 },app);
-server.listen(8080);
+server.listen(3000);
 
 var io = require('socket.io').listen(server);
 
