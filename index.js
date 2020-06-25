@@ -3,7 +3,7 @@ var fs = require('fs');
 var express = require('express'); 
 
 var privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem').toString();
-var certificate = fs.readFileSync('=/etc/letsencrypt/live/chesscall.com/cert.pem').toString();
+var certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem').toString();
 var ca = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/chain.pem').toString();
 
 /*
