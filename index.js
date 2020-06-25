@@ -7,11 +7,14 @@ const fs = require('fs');
 var PORT = process.env.PORT || 3000;
 
 
-const options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+const privateKey = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/privkey.pem', 'utf8');
+const certificate = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem', 'utf8');
+const ca = fs.readFileSync('/etc/letsencrypt/live/chesscall.com/chain.pem', 'utf8');
+const credentials = {
+	key: privateKey,
+	cert: certificate,
+	ca: ca
 };
-
 
 app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
@@ -54,8 +57,13 @@ io.on('connection', (socket) => {
   });
 });
  
-https.createServer(options, function (req, res) {
-  
-}).listen(3000);
+const httpServer = http.createServer(app);
+const httpsServer = https.createServer(credentials, app);
 
+httpServer.listen(3000, () => {
+	console.log('HTTP Server running on port 80');
+});
 
+httpsServer.listen(3000, () => {
+	console.log('HTTPS Server running on port 443');
+});
