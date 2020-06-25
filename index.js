@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
   });
 });
  
-const httpServer = http.createServer(app);
+const httpServer = http
 const httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(90, () => {
