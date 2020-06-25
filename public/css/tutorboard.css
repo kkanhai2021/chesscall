@@ -1,4 +1,6 @@
-
+body { 
+    overflow:hidden;
+}
 .teacherboard{ 
     padding-top: 100px;
     margin: auto; 
