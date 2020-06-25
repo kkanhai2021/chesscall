@@ -1,5 +1,5 @@
 var app = require('express')();
-var https = require('https').createServer(app);
+var https = require('https');
 var io = require('socket.io')(https);
 
 
@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
 });
  
 // const httpServer = http.createServer(app);
-//const httpsServer = https.createServer(credentials, app);
+const httpsServer = https.createServer(credentials, app);
 /*
 httpServer.listen(90, () => {
 	console.log('HTTP Server running on port 80');
