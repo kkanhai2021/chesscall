@@ -5,6 +5,7 @@ var config = {
     draggable: false,
     position: 'start',
     onDrop: onDrop,
+    orientation: 'black',
   
     
   
