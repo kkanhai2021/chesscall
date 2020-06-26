@@ -1,5 +1,6 @@
 body { 
     overflow:hidden;
+    position: fixed;
 }
 .teacherboard{ 
     padding-top: 150px;
