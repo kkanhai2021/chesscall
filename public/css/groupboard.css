@@ -194,7 +194,7 @@ body, html {
 }
 
 #subscriber {
-    position: fixed;
+    position: absolute;
     width: 360px;
     height: 520px;
     bottom: 50px;
@@ -207,7 +207,7 @@ body, html {
 }
 
 #publisher {
-    position: fixed;
+    position: absolute;
     width: 360px;
     height: 245px;
     bottom: 110px;
