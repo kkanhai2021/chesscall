@@ -33,10 +33,10 @@ clicked = false;
 function joinRoom() { 
   room = getRoom();
   console.log(room);
-  var myobj = document.getElementById("roomName");
-  myobj.remove();
-  var myobj2 = document.getElementById("join");
-  myobj2.remove();
+  // var myobj = document.getElementById("roomName");
+  // myobj.remove();
+  // var myobj2 = document.getElementById("join");
+  // myobj2.remove();
   socket.emit('join_room', room);
   initializeSession();
   
