@@ -6,9 +6,6 @@ var config = {
     position: 'start',
     onDrop: onDrop,
     orientation: 'black',
-  
-    
-  
 }
 //intalizes the board witht he name myboard
 var board = Chessboard('studentBoard', config)
