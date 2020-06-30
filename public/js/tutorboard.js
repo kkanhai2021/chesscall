@@ -163,3 +163,8 @@ function setPos() {
   socket.emit("move_made", {room, move});
 
 }
+
+window.addEventListener('resize', function(event){
+
+  window.location.reload(false); 
+});
