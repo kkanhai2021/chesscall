@@ -4,7 +4,8 @@
     margin-top:20%;
     width:90%;
     height:100%;
-    overflow: scroll;
+    
+    border-style:solid;
 }
 .teacherboard{ 
 
