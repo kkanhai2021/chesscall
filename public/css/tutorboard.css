@@ -3,7 +3,8 @@
     grid-row: 1 /3;
     margin-top:20%;
     width:90%;
-    height:100% 
+    height:100%;
+    overflow: scroll;
 }
 .teacherboard{ 
 
@@ -674,4 +675,4 @@
     justify-content: center;
     font-size: 4vh;
   }
-  }
+  
