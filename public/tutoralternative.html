@@ -5,8 +5,7 @@
     <title>ChessCall</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -29,28 +28,6 @@
   <link rel='icon' href='images/favicon.ico' type='images/png/'>
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
-  
-
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-   
-    
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
 
       <div class="container">
@@ -80,33 +57,56 @@
       </div>
       
     </header>
-  
-    <div class='kek'>
-      
-    </div>
-    
-      
-    
-    <div class="teacherboard" id="myBoard" style="width: 450px"></div>
-    
-    <div class="centerbuttons">
-    <button type ='button' id="clearboard" class='clearboard'>Clear Board</a>
-    <button type ='button' id="startpos" class='startpos'>Start Position</a>
-    <button type ='button' id="flipboard" class='flipboard'>Flip Board</a>
-    <button type ='button' id="undomove" class='undomove'>Undo Move</a>
-    </div>
-    
-    <div class='fen'>
-      <input type="text"  class='fen' id='fen'><button class='fen' id='setPosBtn' onclick="setPos();">Set Position</button>
-    </div>
-    
-    
-    
-      <div id="videos">
-          <div id="subscriber"></div>
-          <div id="publisher"></div>
+
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
       </div>
-      <div class="popup" id="popup-1">
+    </div>
+   
+ 
+    
+      
+    <div class='gghh'>
+
+        
+        <div id="subscriber"></div>
+            
+       <div class='board'>  <div class="teacherboard" id="myBoard"></div></div>
+        
+        <div class="chatSection">
+          <input type='text' class='chatBox' placeholder=" enter a message"><button class="send">Send </button>
+        </div>
+        
+    
+        <div id="publisher"></div>
+          
+       <div class='tools'>
+        <div>
+          <button type ='button' id="clearboard" class='toolBtns' >Clear Board</a>
+          <button type ='button' id="startpos" class='toolBtns' >Start Position</a>
+          <button type ='button' id="flipboard" class='toolBtns'>Flip</a>
+          <button type ='button' id="undomove"  class='toolBtns'>Undo Move</a>
+          <button type ='button' class="toolBtns">Set Position</a>
+          <button type ='button' class="toolBtns">Start a game</a>
+          <button type ='button' class="toolBtns">Redo Move</a>
+          <button type ='button' class="toolBtns" id ='call' onclick='startRoom();'>Start</a>
+        </div>
+
+       </div>
+       
+       <div class='displayIssues'><button class='help'>Help</button></div>
+       
+    </div>   
+
+    
+      
+      <div></div>
+      
+      
+      
+        <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
           <div class="close-btn" onclick="togglePopup()">x</div>
@@ -124,16 +124,8 @@
     <script>
       const socket = io('https://chesscall.com');
     </script>
-    <div> 
-      <input type="text" id="roomName" name="roomName" class='centered' id='codefield' hidden>
-      <button onclick="startRoom();" class='centered' id='megadodoo'>Start room</button>
-      </div>
-    <!-- seperator --> 
-    <div class="chatElement" id='chatElement'>
-      
-      <input type='text' placeholder='send message' style="width: 345px" class="msgBox" id='clientMsg'><button class='sendMessageBtn' onclick='sendMessage();'>Send</button>
-    </div>
-  </div>   
+    
+    
      <!-- seperator --> 
   <script src="js/tutorboard.js"></script>
   <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
