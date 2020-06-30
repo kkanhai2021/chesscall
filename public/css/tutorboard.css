@@ -3,12 +3,13 @@
     grid-row: 1 /3;
     margin-top:20%;
     width:90%;
-    height:100%;
-    
-    border-style:solid;
+    height:85%;
+    align-items: center;
+   
 }
 .teacherboard{ 
-   max-width:10%;
+  
+   max-width: 50vh;
    top:0;
    margin-top: 4%;
    
@@ -439,7 +440,7 @@
 
 
 .tools{
-    border-style: solid;
+    
     grid-column: 2 ;
     grid-row: 3;
     justify-content: center;
