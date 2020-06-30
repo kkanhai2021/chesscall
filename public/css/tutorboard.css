@@ -8,7 +8,7 @@
     border-style:solid;
 }
 .teacherboard{ 
-
+   max-width:10%;
    top:0;
    margin-top: 4%;
    
@@ -439,7 +439,7 @@
 
 
 .tools{
-    
+    border-style: solid;
     grid-column: 2 ;
     grid-row: 3;
     justify-content: center;
