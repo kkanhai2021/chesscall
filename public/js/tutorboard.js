@@ -203,6 +203,7 @@ var modal = new tingle.modal({
       console.log('modal open');
   },
   onClose: function() {
+      
       console.log('modal closed');
   },
   beforeClose: function() {
@@ -217,9 +218,10 @@ var modal = new tingle.modal({
 modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><div class='newClass'></div><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div></div>");
 
 // add a button
-modal.addFooterBtn('Start Room', 'tingle-btn tingle-btn--primary startBtn', function() {
+modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
   startRoom();
-  
+  document.getElementsById('codeGoesHere').value = 'mek';
+  console.log();
 });
 
 // add another button
