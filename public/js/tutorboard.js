@@ -77,8 +77,7 @@ var token = getToken(sessionId);
 function startRoom() { 
   socket.emit('join_room', room);
   initializeSession();
-  var element = document.getElementById('megadodoo');
-  element.parentNode.removeChild(element);
+  
   document.getElementById('codeGoesHere').value = room;
   
 
