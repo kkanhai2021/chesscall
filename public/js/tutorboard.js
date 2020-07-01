@@ -220,7 +220,7 @@ modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><div class='newCl
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
   startRoom();
-  document.getElementsById('codeGoesHere').value = 'mek';
+  document.getElementById('codeGoesHere').value = 'mek';
   console.log();
 });
 
