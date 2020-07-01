@@ -160,7 +160,7 @@ function copy() {
 
   /* Copy the text inside the text field */
   document.execCommand("copy");
-
+  togglePopup();
   /* Alert the copied text */
 }
 
