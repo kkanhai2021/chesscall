@@ -213,7 +213,7 @@ var modal = new tingle.modal({
       return false; // nothing happens
   }
 });
-startRoom();
+
 // set content
 modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><div class='newClass'></div><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div></div>");
 
@@ -236,4 +236,4 @@ modal.addFooterBtn('Copy Code', 'tingle-btn tingle-btn--danger copy', function()
 
 // close modal
 
-          
+startRoom();
