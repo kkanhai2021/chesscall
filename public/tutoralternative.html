@@ -4,7 +4,9 @@
   <head>
     <title>ChessCall</title>
     <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <link rel="stylesheet" href="tingle.js/dist/tingle.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -91,26 +93,25 @@
           <button type ='button' class="toolBtns">Set Position</a>
           <button type ='button' class="toolBtns">Start a game</a>
           <button type ='button' class="toolBtns" onclick='redoMove();'>Redo Move</a>
-          <button type ='button' class="toolBtns" id ='call' onclick='startRoom();'>Start</a>
+          <button type ='button' class="toolBtns" id ='call' onclick='startRoom();'>More</a>
         </div>
 
        </div>
        
-       <div class='displayIssues'><button class='help'>Help</button></div>
+       <div class='displayIssues'><button class='help' onclick="togglePopup2();">Help</button></div>
        
     </div>   
 
     
       
       <div></div>
-      
-      
-      
+     
+
         <div class="popup" id="popup-1">
         <div class="overlay"></div>
         <div class="content">
           <div class="close-btn" onclick="togglePopup();">X</div>
-          <h1>ChessCall</h1>
+          <h1 id='popupTitle'>ChessCall</h1>
           <div class='newClass'>
           <button class="undomove" onclick="startRoom();">Start</button>
           <input type='text' id='codeGoesHere' class='undomove' placeholder="Room Code"><button class='undomove' onclick="copy();">Copy</button>
@@ -119,7 +120,18 @@
         </div>
       </div>
       
-      
+      <div class="popup2" id="popup-2">
+        <div class="overlay2"></div>
+        <div class="content2">
+          <div class="close-btn2" onclick="togglePopup2();">X</div>
+          <h1>ChessCall</h1>
+          
+          <button class="undomove" onclick="startRoom();">Start</button>
+          <input type='text' id='codeGoesHere' class='undomove' placeholder="Room Code"><button class='undomove' onclick="copy();">Copy</button>
+          <p id='bruv'> this is opop 2 </p>
+          
+        </div>
+      </div>
       
       
 
@@ -131,6 +143,8 @@
     
     
      <!-- seperator --> 
+  
+  <script src="tingle.js/dist/tingle.min.js"></script>
   <script src="js/tutorboard.js"></script>
   <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>

@@ -1,4 +1,4 @@
-togglePopup();
+
 
 
 var apiKey = "46803054";
@@ -190,3 +190,47 @@ function getCurrentPos(){
   return board.fen(temp[tempIndex]);
 
 }
+
+
+// instanciate new modal
+var modal = new tingle.modal({
+  footer: true,
+  stickyFooter: false,
+  closeMethods: ['overlay', 'button', 'escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+// set content
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><div class='newClass'></div><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div></div>");
+
+// add a button
+modal.addFooterBtn('Start Room', 'tingle-btn tingle-btn--primary startBtn', function() {
+  startRoom();
+  
+});
+
+// add another button
+modal.addFooterBtn('Copy Code', 'tingle-btn tingle-btn--danger copy', function() {
+  copyCode();
+  modal.close();
+});
+
+// open modal
+modal.open();
+
+// close modal
+
+          
