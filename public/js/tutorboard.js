@@ -12,6 +12,8 @@ var config = {
   onDrop: onDrop,
 
 }
+var audio = new Audio('move.mp3');
+
 //intalizes the board witht he name myboard
 var board = Chessboard('myBoard', config)
 
@@ -22,6 +24,7 @@ $('#startpos').on('click', board.start)
 $('#flipboard').on('click', board.flip)
 $('#undomove').on('click', function () {
   temp.push(board.fen());
+  audio.play();
   console.log("mek", temp);
   var x = moveHistory.length;
   var x = x - 1; 
@@ -40,6 +43,7 @@ var moveHistory= [];
 
 function onDrop (source, target, piece, newPos, oldPos, orientation) {
   //adds the most recent move to the move list
+  audio.play();
   moveHistory.push(board.fen());
   move = Chessboard.objToFen(newPos);
   console.log("the move the tutor sent:", move);
