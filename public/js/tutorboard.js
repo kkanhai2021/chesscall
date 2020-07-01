@@ -77,7 +77,6 @@ var token = getToken(sessionId);
 function startRoom() { 
   socket.emit('join_room', room);
   initializeSession();
-  modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><div class='newClass'></div><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' value='blank'><div></div>");
   document.getElementById('codeGoesHere').value = room;
   
 
