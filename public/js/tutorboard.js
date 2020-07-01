@@ -1,4 +1,4 @@
-
+togglePopup();
 
 
 var apiKey = "46803054";
@@ -80,7 +80,7 @@ function startRoom() {
   var element = document.getElementById('megadodoo');
   element.parentNode.removeChild(element);
   document.getElementById('codeGoesHere').value = room;
-  togglePopup();
+  
 
   
 }
@@ -90,6 +90,7 @@ function copyCode() {
   copyText.select();
   copyText.setSelectionRange(0, 99999); 
   document.execCommand("copy");
+  togglePopup();
 }
 
 // Handling all of our errors here by alerting them
