@@ -785,3 +785,8 @@
   font-family: 'MuseoModerno', cursive;
 
 }
+
+.hide {
+  position:absolute;
+  left:-9999px;
+}
