@@ -790,3 +790,7 @@
   position:absolute;
   left:-9999px;
 }
+
+.spacing { 
+  margin-left:10px;
+}
