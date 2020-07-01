@@ -214,12 +214,15 @@ var modal = new tingle.modal({
 });
 
 // set content
-modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students' value="+room+"><div><p class='spacing'>Share this code with your students.</p></div>");
+
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div><p class='spacing'>Share this code with your students.</p></div>");
 
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
+  
+  modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students' value="+room+"><div><p class='spacing'>Share this code with your students.</p></div>");
   startRoom();
-  modal.close();
+
 });
 
 // add another button
