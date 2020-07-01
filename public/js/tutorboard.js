@@ -1,5 +1,6 @@
 
 
+
 var apiKey = "46803054";
 
 // sets the config of the board
@@ -14,20 +15,23 @@ var config = {
 //intalizes the board witht he name myboard
 var board = Chessboard('myBoard', config)
 
-
+var temp = [];
 // adds functionality to the buttons 
 $('#clearboard').on('click', board.clear)
 $('#startpos').on('click', board.start)
 $('#flipboard').on('click', board.flip)
 $('#undomove').on('click', function () {
+  temp.push(board.fen());
+  console.log("mek", temp);
   var x = moveHistory.length;
   var x = x - 1; 
   board.position(moveHistory[x]);
   moveHistory.pop();
   
   move = Chessboard.objToFen(board.position());
+  
   socket.emit("move_made", {room, move});
-
+  console.log('undo move finished');
 })
 //records the board states
 var moveHistory= [];
@@ -168,3 +172,16 @@ window.addEventListener('resize', function(event){
 
   window.location.reload(false); 
 });
+
+function redoMove(){
+  tempIndex = temp.length - 1;
+  board.position(temp[tempIndex]);
+  temp.pop();
+
+}
+
+function getCurrentPos(){ 
+  tempIndex = temp.length-1;
+  return board.fen(temp[tempIndex]);
+
+}
