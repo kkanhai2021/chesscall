@@ -178,6 +178,7 @@ window.addEventListener('resize', function(event){
 });
 
 function redoMove(){
+  audio.play();
   tempIndex = temp.length - 1;
   board.position(temp[tempIndex]);
   temp.pop();
