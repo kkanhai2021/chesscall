@@ -268,6 +268,7 @@ socket.on("game_started", time => {
 });
 
 socket.on("move", ({move, board}) => {
+  console.log('I actually finally received the legal move');
   game.move(move);
   board.position(game.fen());
   console.log("moved");
