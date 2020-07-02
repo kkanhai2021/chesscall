@@ -70,7 +70,12 @@ io.on('connection', (socket) => {
     socket.to(room).emit("messageReceived", msg);
   });
 });
- 
+
+socket.on("game_started", ({room, time}) => {
+    
+  
+  socket.to(room).emit("game_started", time);
+});
 
 
 /*
