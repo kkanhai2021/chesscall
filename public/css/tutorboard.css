@@ -794,3 +794,15 @@
 .spacing { 
   margin-left:10px;
 }
+
+.troubleshooting{ 
+  color:black;
+}
+
+.notice { 
+  margin-top: 20px;
+}
+
+.troubletext{ 
+  font-size: 22px;
+}

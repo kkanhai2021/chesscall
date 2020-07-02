@@ -240,4 +240,30 @@ modal.open();
 
 
 
-          
+var helpModal = new tingle.modal({
+  footer: true,
+  stickyFooter: true,
+  closeMethods: ['overlay', 'button', 'escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+helpModal.addFooterBtn('Back','tingle-btn tingle-btn--danger tingle-btn--pull-right copy', function() {
+  helpModal.close();
+  
+});
+
+helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class='troubleshooting notice'>Notice</h2><p class='troubletext'>We apologize for any inconveniances we may have caused you. The small dedicated team at ChessCall will try to resolve these issues as soon as possible. Below you will find a brief guide on fixing some of the most common issues.</p><h2 class='troubleshooting'>Display Issues</h2> <img src='images/messedUpBoard.png' width='800' height='400' style='border-style: solid; border-color: black;'><p class='troubletext'>Board looking all jumbled? No worries! Just resize the window (try both horizontally and vertically).</p><h2 class='troubleshooting'>Button Issues</h2><p class='troubletext'>Buttons not working? Try clearing the board and hiting start posistion.</p>");
