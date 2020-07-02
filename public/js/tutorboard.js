@@ -298,6 +298,8 @@ function onDrop (source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
+  else 
+    socket.emit("move_made", {room, move});
   updateStatus()
 }
 
