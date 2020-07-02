@@ -52,7 +52,7 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
 }
 
 socket.on("move_made", move => {
- 
+  console.log("i received the legal move")
   board.position(move);
   
   

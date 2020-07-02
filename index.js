@@ -62,6 +62,7 @@ io.on('connection', (socket) => {
     console.log("A move was sent to:", room);
     console.log("the move the server received was", move);
     socket.to(room).emit("move_made", move);
+    console.log("I sent the legal move to", room)
   });
   socket.on("incomingMessage", ({room, msg}) => {
     
