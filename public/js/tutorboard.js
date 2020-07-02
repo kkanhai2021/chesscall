@@ -299,6 +299,7 @@ function onDrop (source, target) {
   if (move === null) return 'snapback'
 
   else 
+    move = game.fen();
     socket.emit("move_made", {room, move});
   updateStatus()
 }
