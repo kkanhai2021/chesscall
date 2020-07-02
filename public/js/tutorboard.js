@@ -296,7 +296,8 @@ function onDrop (source, target) {
   })
 
   // illegal move
-  if (move === null) return 'snapback'
+  if (move === null) 
+    return 'snapback';
 
   else 
     move = game.fen();
