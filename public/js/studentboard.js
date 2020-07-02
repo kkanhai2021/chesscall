@@ -262,15 +262,14 @@ socket.on("game_started", time => {
     onSnapEnd: onSnapEnd
   }
   board = Chessboard('myBoard', config)
-  
+  socket.on("move", ({move, board}) => {
+    console.log('I actually finally received the legal move');
+    game.move(move);
+    board.position(game.fen());
+    console.log("moved");
+   
+  });
   updateStatus()
 
 });
 
-socket.on("move", ({move, board}) => {
-  console.log('I actually finally received the legal move');
-  game.move(move);
-  board.position(game.fen());
-  console.log("moved");
- 
-});
