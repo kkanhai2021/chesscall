@@ -1,3 +1,4 @@
+const { Chess } = require('./chess.js')
 var express = require('express');
 var fs = require( 'fs' );
 var app = require('express')();
