@@ -215,7 +215,7 @@ var modal = new tingle.modal({
 
 // set content
 
-modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div><p class='spacing'>Share this code with your students.</p></div>");
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Share this room code with your students'><div><p class='spacing'>Get started.</p></div>");
 
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
@@ -241,7 +241,7 @@ modal.open();
 
 
 var helpModal = new tingle.modal({
-  footer: true,
+  footer: false,
   stickyFooter: true,
   closeMethods: ['overlay', 'button', 'escape'],
   closeLabel: "Close",
@@ -261,9 +261,92 @@ var helpModal = new tingle.modal({
   }
 });
 
-helpModal.addFooterBtn('Back','tingle-btn tingle-btn--danger tingle-btn--pull-right copy', function() {
-  helpModal.close();
+//helpModal.addFooterBtn('Back','tingle-btn tingle-btn--danger tingle-btn--pull-right copy', function() {
+ // helpModal.close();
   
-});
+//});
 
-helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class='troubleshooting notice'>Notice</h2><p class='troubletext'>We apologize for any inconveniances we may have caused you. The small dedicated team at ChessCall will try to resolve these issues as soon as possible. Below you will find a brief guide on fixing some of the most common issues.</p><h2 class='troubleshooting'>Display Issues</h2> <img src='images/messedUpBoard.png' width='800' height='400' style='border-style: solid; border-color: black;'><p class='troubletext'>Board looking all jumbled? No worries! Just resize the window (try both horizontally and vertically).</p><h2 class='troubleshooting'>Button Issues</h2><p class='troubletext'>Buttons not working? Try clearing the board and hiting start posistion.</p>");
+helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class='troubleshooting notice'>Notice:</h2><p class='troubletext'>We apologize for any inconveniances we may have caused you. The small dedicated team at ChessCall will try to resolve these issues as soon as possible. Below you will find a brief guide on fixing some of the most common issues.</p><h2 class='troubleshooting'>Display Issues:</h2> <img src='images/messedUpBoard.png' width='975' height='400' style='border-style: solid; border-color: black;'><p class='troubletext'>Board looking all jumbled? No worries! Just resize the window (try both horizontally and vertically).</p><h2 class='troubleshooting'>Button Issues:</h2><p class='troubletext'>Buttons not working? Try clearing the board and hiting start posistion.</p>");
+
+function gameStart(){ 
+var board = null
+var game = new Chess()
+var $status = $('#status')
+var $fen = $('#fen')
+var $pgn = $('#pgn')
+
+function onDragStart (source, piece, position, orientation) {
+  // do not pick up pieces if the game is over
+  if (game.game_over()) return false
+
+  // only pick up pieces for the side to move
+  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+    return false
+  }
+}
+
+function onDrop (source, target) {
+  // see if the move is legal
+  var move = game.move({
+    from: source,
+    to: target,
+    promotion: 'q' // NOTE: always promote to a queen for example simplicity
+  })
+
+  // illegal move
+  if (move === null) return 'snapback'
+
+  updateStatus()
+}
+
+// update the board position after the piece snap
+// for castling, en passant, pawn promotion
+function onSnapEnd () {
+  board.position(game.fen())
+}
+
+function updateStatus () {
+  var status = ''
+
+  var moveColor = 'White'
+  if (game.turn() === 'b') {
+    moveColor = 'Black'
+  }
+
+  // checkmate?
+  if (game.in_checkmate()) {
+    status = 'Game over, ' + moveColor + ' is in checkmate.'
+  }
+
+  // draw?
+  else if (game.in_draw()) {
+    status = 'Game over, drawn position'
+  }
+
+  // game still on
+  else {
+    status = moveColor + ' to move'
+
+    // check?
+    if (game.in_check()) {
+      status += ', ' + moveColor + ' is in check'
+    }
+  }
+
+  $status.html(status)
+  $fen.html(game.fen())
+  $pgn.html(game.pgn())
+}
+
+var config = {
+  draggable: true,
+  position: 'start',
+  onDragStart: onDragStart,
+  onDrop: onDrop,
+  onSnapEnd: onSnapEnd
+}
+board = Chessboard('myBoard', config)
+
+updateStatus()
+}
