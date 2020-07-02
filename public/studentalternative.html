@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
+<div id='uniqueid'>
   <head>
     <title>ChessCall</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
     
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <link rel="stylesheet" href="tingle.js/dist/tingle.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -15,48 +16,20 @@
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    
-
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-
     <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="chessboardjs-1/css/chessboard-1.0.0.min.css">
-	
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 	<script src="chessboardjs-1/js/chessboard-1.0.0.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/studentboard.css">
 	<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap" rel="stylesheet">
-  <link rel='icon' href='images/favicon.ico' type='images/png/'>
+  
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
-  
-
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
-
-
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-   
-    
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
 
       <div class="container">
@@ -70,11 +43,11 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a class="nav-link">Home</a></li>
+                <li><a  class="nav-link">Home</a></li>
                 
                 
                 
-                <li><a  class="nav-link">Login</a></li>
+                <li><a sclass="nav-link">Login</a></li>
               </ul>
             </nav>
           </div>
@@ -86,42 +59,48 @@
       </div>
       
     </header>
-  
-    <div class='kek'>
-      
-    </div>
-    
-      
-    
-    <div class="teacherboard" id="studentBoard" style="width: 500px"></div>
-    <div class="joinARoom">
-      <input type='text' placeholder="Enter room code" id="roomName" name="roomName" placeholder="Enter Your Room Code" ><button onclick="joinRoom();" class="undomove" id='join'>Join</button>
-    </div>
 
-    
-    
-    
-    
-      <div id="videos">
-          <div id="subscriber"></div>
-          <div id="publisher"></div>
+    <div id="overlayer"></div>
+    <div class="loader">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
       </div>
+    </div>
+   
+ 
     
       
+    <div class='gghh'>
+
+        
+        <div id="subscriber"></div>
+            
+       <div class='board' id="mek">  <div class="teacherboard" id="myBoard"></div>              </div>
+        
+        <div class="chatSection">
+          <input type='text' class='chatBox' placeholder=" enter a message"><button class="send">Send </button>
+        </div>
+        
+    
+        <div id="publisher"></div>
+          
+     
+
+       
+      
+      
+      <input type=text class ='hide' id='baby'>
 
 
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://chesscall.com/socket.io/socket.io.js"></script>
     <script>
       const socket = io('https://chesscall.com');
     </script>
-    
-    <!-- seperator --> 
-    <div class="chatElement" id='chatElement'>
-      
-      <input type='text' placeholder='send message' style="width: 345px" class="msgBox" id='clientMsg'><button class='sendMessageBtn' onclick='sendMessage();'>Send</button>
-    </div>
+    <div class='displayIssues'><button class='help' onclick="helpModal.open();">Help</button></div>
     
      <!-- seperator --> 
+  
+  <script src="tingle.js/dist/tingle.min.js"></script>
   <script src="js/studentboard.js"></script>
   <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
@@ -137,8 +116,8 @@
   <script src="js/isotope.pkgd.min.js"></script>
   <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js" charset="utf-8"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" charset="utf-8"></script>
-  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" charset="utf-8"></script>
+  <script src="chess.js/chess.js"></script>
   <script src="js/main.js"></script>
 
   <script>

@@ -195,7 +195,7 @@ function getCurrentPos(){
 var modal = new tingle.modal({
   footer: true,
   stickyFooter: false,
-  closeMethods: ['overlay', 'button', 'escape'],
+  closeMethods: ['overlay', 'escape'],
   closeLabel: "Close",
   cssClass: ['custom-class-1', 'custom-class-2'],
   onOpen: function() {
@@ -243,7 +243,7 @@ modal.open();
 var helpModal = new tingle.modal({
   footer: false,
   stickyFooter: true,
-  closeMethods: ['overlay', 'button', 'escape'],
+  closeMethods: ['overlay','escape'],
   closeLabel: "Close",
   cssClass: ['custom-class-1', 'custom-class-2'],
   onOpen: function() {

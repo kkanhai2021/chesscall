@@ -8,9 +8,9 @@ var config = {
     orientation: 'black',
     
   
-  }
+}
 //intalizes the board witht he name myboard
-var board = Chessboard('studentBoard', config)
+var board = Chessboard('myBoard', config)
 
 
 var roomList = ['2_MX40NjgwMzA1NH5-MTU5Mjc4NzAzMDc4NH5mQTFiRlArVUk2d2xPQmVhY01vdHJaOG9-fg','2_MX40NjgwMzA1NH5-MTU5MjkzOTY3OTQ5N355Tmt4WVpEbHVocEx4RGowQUEwVG93ZXh-fg', '1_MX40NjgwMzA1NH5-MTU5Mjk0MDAwMDUyNX5FOXM1QWpXSzhlWGw4VGpLNSt0d0FBcnN-fg','1_MX40NjgwMzA1NH5-MTU5Mjk0MDAzNDAwNX5EbUVVd3VvNlQxdkVMaDYycVRGOURsV2l-fg','2_MX40NjgwMzA1NH5-MTU5Mjk0MDEyMTEyOX5OSzRsUVV5L1pLVE4yaktiQnoydisxTEd-fg'];
@@ -18,7 +18,7 @@ var sessionId = '';
 var token = '';
 function getRoom() { 
   
-  var room = document.getElementById("roomName").value;
+  var room = document.getElementById("codeGoesHere").value;
   sessionId = room;
   token = getToken(sessionId);
   return room;
@@ -38,10 +38,7 @@ function joinRoom() {
   room = getRoom();
   console.log(room);
   socket.emit('join_room', room);
-  var myobj = document.getElementById("roomName");
-  myobj.remove();
-  var myobj2 = document.getElementById("join");
-  myobj2.remove();
+  
   initializeSession();
   
 }
@@ -113,3 +110,71 @@ socket.on('messageReceived', msg => {
   document.getElementById('chatElement').innerHTML += "<div class='contain darker'> <p>" +' ' + msg + "</p></div>";
 
 });
+
+window.addEventListener('resize', function(event){
+
+  window.location.reload(false); 
+});
+
+var modal = new tingle.modal({
+  footer: true,
+  stickyFooter: false,
+  closeMethods: ['overlay','escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+// set content
+
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Paste the code your tutor gave you here.'><div><p class='spacing'>Get started.</p></div>");
+
+// add a button
+modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
+    joinRoom();
+    console.log(room);
+    modal.close();
+});
+
+// add another button
+modal.open();
+
+var helpModal = new tingle.modal({
+  footer: false,
+  stickyFooter: true,
+  closeMethods: ['overlay','escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+//helpModal.addFooterBtn('Back','tingle-btn tingle-btn--danger tingle-btn--pull-right copy', function() {
+ // helpModal.close();
+  
+//});
+
+helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class='troubleshooting notice'>Notice:</h2><p class='troubletext'>We apologize for any inconveniances we may have caused you. The small dedicated team at ChessCall will try to resolve these issues as soon as possible. Below you will find a brief guide on fixing some of the most common issues.</p><h2 class='troubleshooting'>Display Issues:</h2> <img src='images/messedUpBoard.png' width='775' height='400' style='border-style: solid; border-color: black;'><p class='troubletext'>Board looking all jumbled? No worries! Just resize the window (try both horizontally and vertically).</p><h2 class='troubleshooting'>Button Issues:</h2><p class='troubletext'>Buttons not working? Try clearing the board and hiting start posistion.</p>");
