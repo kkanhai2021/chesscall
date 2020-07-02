@@ -76,7 +76,7 @@ io.on('connection', (socket) => {
     socket.to(room).emit("game_started", time);
   });
   socket.on("move", ({move, board, room}) => {
-    
+    console.log('I sent a legal move lmao')
     socket.to(room).emit("move", move, board);
   });
 

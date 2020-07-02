@@ -301,7 +301,7 @@ function onDrop (source, target) {
 
   else 
     socket.emit('move', { move: move, board: game.fen(), room: room });
-updateStatus()
+    updateStatus()
 }
 
 // update the board position after the piece snap
