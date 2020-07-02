@@ -184,7 +184,7 @@ helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class=
 
 
 socket.on("game_started", time => {
-  var board = null
+  
   var game = new Chess()
   var $status = $('#status')
   var $fen = $('#fen')
@@ -261,8 +261,9 @@ socket.on("game_started", time => {
     onDrop: onDrop,
     onSnapEnd: onSnapEnd
   }
-  board = Chessboard('myBoard', config);
+  
   socket.on("move", ({move, board}) => {
+    
     console.log('I actually finally received the legal move');
     game.move(move);
     
