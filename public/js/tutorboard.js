@@ -300,7 +300,10 @@ function onDrop (source, target) {
     return 'snapback';
 
   else 
-    socket.emit('move', { move: move, board: game.fen(), room: room });
+    console.log(game.fen());
+    board = game.fen();
+    room = room
+    socket.emit('move', { move, board, room });
     updateStatus()
 }
 
