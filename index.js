@@ -1,4 +1,4 @@
-
+var socket = io();
 var express = require('express');
 var fs = require( 'fs' );
 var app = require('express')();
