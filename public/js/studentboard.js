@@ -52,10 +52,10 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
 }
 
 socket.on("move_made", move => {
-  moveHistory.push(board.fen());
+ 
   board.position(move);
   
-  console.log(moveHistory);
+  
 });
 
 
