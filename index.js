@@ -1,4 +1,4 @@
-var socket = io();
+
 var express = require('express');
 var fs = require( 'fs' );
 var app = require('express')();
@@ -69,13 +69,14 @@ io.on('connection', (socket) => {
     
     socket.to(room).emit("messageReceived", msg);
   });
-});
-
-socket.on("game_started", ({room, time}) => {
+  socket.on("game_started", ({room, time}) => {
     
   
-  socket.to(room).emit("game_started", time);
+    socket.to(room).emit("game_started", time);
+  });
+  
 });
+
 
 
 /*
