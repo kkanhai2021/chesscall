@@ -75,7 +75,16 @@ io.on('connection', (socket) => {
   
     socket.to(room).emit("game_started", time);
   });
-  
+  socket.on("move", ({move, board, room}) => {
+    
+    socket.to(room).emit("move", move, board);
+  });
+
+
+
+
+
+
 });
 
 

@@ -266,3 +266,10 @@ socket.on("game_started", time => {
   updateStatus()
 
 });
+
+socket.on("move", ({move, board}) => {
+  game.move(move);
+  board.position(game.fen());
+  console.log("moved");
+ 
+});

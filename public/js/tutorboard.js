@@ -300,11 +300,8 @@ function onDrop (source, target) {
     return 'snapback';
 
   else 
-    console.log('this code ran');
-    move = game.fen();
-    console.log('the legal move was', move);
-    socket.emit("move_made", {room, move});
-    updateStatus()
+    socket.emit('move', { move: move, board: game.fen(), room: room });
+updateStatus()
 }
 
 // update the board position after the piece snap
