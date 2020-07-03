@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
   socket.on("move_made", ({room, move}) => {
-    res.sendFile(__dirname + '/public/index.html');
+    
     console.log("A move was sent to:", room);
     console.log("the move the server received was", move);
     socket.to(room).emit("move_made", move);
