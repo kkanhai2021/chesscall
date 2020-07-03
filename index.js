@@ -51,6 +51,7 @@ io.on('connection', (socket) => {
   
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
+    res.sendFile(__dirname + '/public/index.html');
     console.log("socket joined: ", room);
     socket.emit('your_room', room);
     socket.join(room);
