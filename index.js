@@ -73,10 +73,11 @@ io.on('connection', (socket) => {
   });
   socket.on("game_started", ({room, time, color}) => {
     console.log('a game was started');
-  
+    console.log(color);
     socket.to(room).emit("game_started", {time, color});
   });
   socket.on("legal_move", ({move, room}) => {
+    console.log('the legal move sent was', move);
     console.log('I sent a legal move lmao');
     socket.to(room).emit("legal_move", move);
   });

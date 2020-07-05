@@ -2260,6 +2260,7 @@ startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn-
       }
   }
   color = selectedValue;
+  console.log(color);
   console.log(selectedValue);
   console.log(selectedValue);
   board.destroy(); 
