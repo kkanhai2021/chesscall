@@ -2156,8 +2156,10 @@ socket.on("legal_move", (move) => {
   
 });
 
+
+
 socket.on("editor", (room) => {
-  "this function fired"
+  console.log("this function fired");
   board2.destroy();
   board = Chessboard('myBoard', {
     draggable: true,
