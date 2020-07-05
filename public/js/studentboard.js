@@ -2093,9 +2093,9 @@ socket.on("game_started", ({time, color}) => {
   board.destroy();
   console.log(color);
   if(color == 'white') { 
-     var orient = 'white';
+     var orient = 'black';
   } else { 
-    var  orient = 'black';
+    var  orient = 'white';
   }
 
   board2 = Chessboard('board2', {
