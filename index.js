@@ -82,7 +82,7 @@ io.on('connection', (socket) => {
     socket.to(room).emit("legal_move", (move));
   });
   socket.on("editor", (room) => {
-    
+    console.log('the editor listener fired')
     socket.to(room).emit("editor", (room));
   });
 
