@@ -2222,7 +2222,7 @@ function onSnapEndL () {
   audio.play();
   board1.position(game.fen())
   move = game.fen()
-  socket.emit("legal_mode", ({room, move}));
+  socket.emit("legal_move", ({room, move}));
 }
 
 
