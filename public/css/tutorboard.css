@@ -39,8 +39,8 @@
     border: 4px solid #000000 !important;
     display: inline-block;
     transition: all 0.4s ease 0s;
-    
-    margin-left: 10px;
+    margin-top:3%;
+    margin-left: 5px;
     font-family: 'MuseoModerno', cursive;
 }
 .undomove:hover{
@@ -435,17 +435,18 @@
     border-color:black;
     border-style: solid;
     height: 74%;
-   
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .chatBox { 
     font-family: 'MuseoModerno', cursive;
     position: absolute;
-    bottom:30%;
+    bottom:23%;
     border-style: solid;
     border-color: black;
     border-width: 3px;
-    margin-left: 1%;
-    width: 21%;
+    margin-left: -0.3%;
+    width: 23.5%;
     height:4%;
 }
 
@@ -468,7 +469,7 @@
     color: #000000 !important;
     text-decoration: none;
     background: #ffffff;
-   
+    border-radius: .4em;
     border-style: solid;
     border-color: #000000;
     border-width:0.3vh;
@@ -497,8 +498,8 @@
 
 .send{ 
     position:absolute;
-    bottom: 30%;
-    margin-left: 22.5%;
+    bottom: 23%;
+    margin-left: 23.7%;
     color: #000000 !important;
     text-decoration: none;
     background: #ffffff;
@@ -511,6 +512,7 @@
     font-family: 'MuseoModerno', cursive;
     height:4%;
     font-size:2vh;
+    margin-top:5%;
 }
 
 .send:hover { 
@@ -906,3 +908,63 @@
   transition: all 0.4s ease 0s;
   font-family: 'MuseoModerno', cursive;
 }
+
+
+.speechbubble {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+  margin-top:2%;
+	position: relative;
+	background: #000000;
+  border-radius: 2.5em;
+  width:50%;
+  margin-left:48%;
+  padding:2%;
+  margin-bottom:1%;
+}
+
+.speechbubble:after {
+  font-size: 2vh;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.75em solid transparent;
+	border-left-color: #000000;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -0.375em;
+	margin-right: -0.75em;
+}
+
+.speechbubble2 {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+  margin-top:3%;
+	position: relative;
+	background: #BEC0C2;
+  border-radius: 2.5em;
+  width:50%;
+  margin-left:2%;
+  padding:0.5%;
+}
+
+.speechbubble2:after {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.594em solid transparent;
+	border-right-color: #b0b0b0;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -0.297em;
+	margin-left: -0.594em;
+}
+

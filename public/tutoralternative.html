@@ -77,8 +77,9 @@
             
        <div class='board' id="mek">  <div class="teacherboard" id="myBoard">  </div>  <div id="board1"></div>   </div>
         
-        <div class="chatSection">
-          <input type='text' class='chatBox' placeholder=" enter a message"><button class="send">Send </button>
+        <div class="chatSection" id='chatSection'>
+          
+          <div class='prettyzin'><input type='text' id='msg' class='chatBox' placeholder=" Enter a message"><button class="send" onclick="sendMessage();">Send </button></div>
         </div>
         
     
@@ -90,7 +91,7 @@
           <button type ='button' id="startpos" class='toolBtns' >Start Position</a>
           <button type ='button' id="flipboard" class='toolBtns'>Flip</a>
           <button type ='button' id="undomove"  class='toolBtns'>Undo Move</a>
-          <button type ='button' class="toolBtns">Set Position</a>
+          <button type ='button' class="toolBtns" onclick='setPositionModal.open();'>Set Position</a>
           <button type ='button' class="toolBtns" onclick='gameStart();'>Start a game</a>
           <button type ='button' class="toolBtns" onclick='redoMove();'>Redo Move</a>
           <button type ='button' class="toolBtns" id ='call' onclick='more();'>Editor</a>
@@ -107,31 +108,9 @@
       <div></div>
      
 
-        <div class="popup" id="popup-1">
-        <div class="overlay"></div>
-        <div class="content">
-          <div class="close-btn" onclick="togglePopup();">X</div>
-          <h1 id='popupTitle'>ChessCall</h1>
-          <div class='newClass'>
-          <button class="undomove" onclick="startRoom();">Start</button>
-          <input type='text' id='' class='undomove' placeholder="Room Code"><button class='undomove' onclick="copy();">Copy</button>
-          <p id='bruv'> Share this with your students. </p>
-          <div>
-        </div>
+        
       </div>
       
-      <div class="popup2" id="popup-2">
-        <div class="overlay2"></div>
-        <div class="content2">
-          <div class="close-btn2" onclick="togglePopup2();">X</div>
-          <h1>ChessCall</h1>
-          
-          <button class="undomove" onclick="startRoom();">Start</button>
-          <input type='text' id='codeGoesHere' class='undomove' placeholder="Room Code"><button class='undomove' onclick="copy();">Copy</button>
-          <p id='bruv'> this is opop 2 </p>
-          
-        </div>
-      </div>
       
       <input type=text class ='hide' id='baby'>
 

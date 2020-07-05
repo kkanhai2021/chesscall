@@ -2007,16 +2007,16 @@ function initializeSession() {
 }
 
 function sendMessage() { 
-  var msg = document.getElementById('clientMsg').value;
+  var msg = document.getElementById('msg').value;
   
-  document.getElementById('chatElement').innerHTML += "<div class='contain'> <p>" +' ' + msg + "</p></div>";
-  socket.emit("incomingMessage", {room, msg});
+  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>"
+  socket.emit("incomingMessage", ({room, msg}));
 
   
 }
 
 socket.on('messageReceived', msg => { 
-  document.getElementById('chatElement').innerHTML += "<div class='contain darker'> <p>" +' ' + msg + "</p></div>";
+  document.getElementById('chatSection').innerHTML += "<div class='speechbubble2'><p>"+ ' ' + msg + "</p></div>";
 
 });
 var board2 = null;
@@ -2115,10 +2115,7 @@ function onDragStartL (source, piece, position, orientation) {
   if (game.game_over()) return false
 
   // only pick up pieces for the side to move
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false
-  }
+  
 }
 
 function onDropL (source, target) {
@@ -2132,7 +2129,11 @@ function onDropL (source, target) {
   // illegal move
   if (move === null) return 'snapback'
 
-  
+  else {
+    var board = game.fen()
+    console.log('attempting to log the move', move);
+    socket.emit('legal_move', ({move, board, room}));
+  }
 }
 
 // update the board position after the piece snap
@@ -2140,11 +2141,15 @@ function onDropL (source, target) {
 function onSnapEndL () {
   audio.play();
   board2.position(game.fen())
+  
+ 
+  
 }
 
 
-socket.on("legal_move", ({move, room}) => {
-  console.log('the lega move function fire', move);
+socket.on("legal_move", (move) => {
+  console.log('this message fires after the legal move listener is activated', move);
   game.move(move);
-  board.position(move);
+  board2.position(game.fen());
+  
 });

@@ -2040,16 +2040,16 @@ function initializeSession() {
 }
 
 function sendMessage() { 
-  var msg = document.getElementById('clientMsg').value;
+  var msg = document.getElementById('msg').value;
   
-  document.getElementById('chatElement').innerHTML += "<div class='contain'> <p>" +' ' + msg + "</p></div>";
-  socket.emit("incomingMessage", room);
+  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>"
+  socket.emit("incomingMessage", ({room, msg}));
 
   
 }
 
 socket.on('messageReceived', msg => { 
-  document.getElementById('chatElement').innerHTML += "<div class='contain darker'> <p>" +' ' + msg + "</p></div>";
+  document.getElementById('chatSection').innerHTML += "<div class='speechbubble2'><p>"+ '' + msg + "</p></div>";
 
 });
 
@@ -2089,7 +2089,11 @@ function redoMove(){
   audio.play();
   tempIndex = temp.length - 1;
   board.position(temp[tempIndex]);
+  moveHistory.push(board.fen());
   temp.pop();
+  move = Chessboard.objToFen(board.position());
+  socket.emit("move_made", {room, move});
+  
 
 }
 
@@ -2196,10 +2200,7 @@ function onDragStartL (source, piece, position, orientation) {
   if (game.game_over()) return false
 
   // only pick up pieces for the side to move
-  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-    return false
-  }
+  
 }
 
 function onDropL (source, target) {
@@ -2211,9 +2212,13 @@ function onDropL (source, target) {
   })
 
   // illegal move
-  if (move === null) return 'snapback'
+  if (move === null) return 'snapback';
 
-  
+  else {
+    console.log('attempting to log the move', move);
+    var board = game.fen()
+    socket.emit('legal_move', ({move, board, room}));
+  }
 }
 
 // update the board position after the piece snap
@@ -2221,8 +2226,7 @@ function onDropL (source, target) {
 function onSnapEndL () {
   audio.play();
   board1.position(game.fen())
-  move = game.fen()
-  socket.emit("legal_move", ({room, move}));
+  
 }
 
 
@@ -2279,3 +2283,43 @@ startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn-
 
 
 
+socket.on("legal_move", (move) => {
+  console.log('the legal move function fire', move);
+  game.move(move);
+  board1.position(game.fen());
+});
+
+
+var setPositionModal = new tingle.modal({
+  footer: true,
+  stickyFooter: false,
+  closeMethods: ['overlay', 'escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+setPositionModal.setContent("<h1 class='troubleshooting'>Enter a Fen:</h1><input id='setFen' class='undomove' type='text' placeholder='enter a fen'>");
+
+setPositionModal.addFooterBtn('Set Position', 'tingle-btn tingle-btn--primary startBtn tingle-btn--pull-right', function() {
+  var fen = document.getElementById('setFen').value;
+  console.log(fen);
+  board.position(fen);
+  setPositionModal.close();
+  move = Chessboard.objToFen(board.position());
+  
+  socket.emit("move_made", {room, move});
+  
+});
