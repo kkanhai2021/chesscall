@@ -1958,6 +1958,7 @@ function onDrop (source, target, piece, newPos, oldPos, orientation) {
 }
 
 socket.on("move_made", move => {
+  audio.play();
   console.log("i received the legal move")
   board.position(move);
   
@@ -2148,6 +2149,7 @@ function onSnapEndL () {
 
 
 socket.on("legal_move", (move) => {
+  audio.play();
   console.log('this message fires after the legal move listener is activated', move);
   game.move(move);
   board2.position(game.fen());

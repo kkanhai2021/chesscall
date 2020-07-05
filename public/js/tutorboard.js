@@ -2086,6 +2086,7 @@ window.addEventListener('resize', function(event){
 $(window).resize(board.resize)
 
 function redoMove(){
+  
   audio.play();
   tempIndex = temp.length - 1;
   board.position(temp[tempIndex]);
@@ -2284,6 +2285,7 @@ startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn-
 
 
 socket.on("legal_move", (move) => {
+  audio.play();
   console.log('the legal move function fire', move);
   game.move(move);
   board1.position(game.fen());
