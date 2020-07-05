@@ -2325,3 +2325,21 @@ setPositionModal.addFooterBtn('Set Position', 'tingle-btn tingle-btn--primary st
   socket.emit("move_made", {room, move});
   
 });
+
+
+function editor() { 
+  board1.destroy();
+  board = Chessboard('myBoard', {
+    draggable: true,
+    position: 'start',
+    sparePieces: true,
+    dropOffBoard: 'trash',
+    onChange: onChange,
+  })
+
+  socket.emit('editor', (room));
+
+
+
+
+}

@@ -2155,3 +2155,14 @@ socket.on("legal_move", (move) => {
   board2.position(game.fen());
   
 });
+
+socket.on("editor", (room) => {
+  "this function fired"
+  board2.destroy();
+  board = Chessboard('myBoard', {
+    draggable: true,
+    position: 'start',
+    onDrop: onDrop,
+    orientation: 'black',
+  })
+});

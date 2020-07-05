@@ -81,7 +81,10 @@ io.on('connection', (socket) => {
     console.log('I sent a legal move lmao');
     socket.to(room).emit("legal_move", (move));
   });
-
+  socket.on("editor", (room) => {
+    
+    socket.to(room).emit("editor", (room));
+  });
 
 
 
