@@ -1,3 +1,9 @@
+.board1 { 
+  width:300px;
+  grid-column: 1; 
+  grid-row: 3;
+}
+
 .board { 
     grid-column: 2; 
     grid-row: 1 /3;
@@ -806,4 +812,97 @@
 
 .troubletext{ 
   font-size: 22px;
+}
+
+#black { 
+  margin-top:5%;
+  margin-left:30%;
+  width:20px;
+  height: 20px;
+  color: black;
+}
+
+#white { 
+  margin-left:1.8%;
+  margin-top:5%;
+  width:20px;
+  height: 20px;
+  color:black;
+}
+
+
+#minutes { 
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 0.5%;
+  border: 5px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  border-color: black;
+  margin-left: 10px;
+  font-family: 'MuseoModerno', cursive;
+}
+#minutes.hover{ 
+  color: #ffffff !important;
+  background: black;
+  border-color: black !important;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
+}
+
+#increment { 
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 0.5%;
+  border: 5px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  margin-left: 10px;
+  font-family: 'MuseoModerno', cursive;
+  border-color: black;
+  margin-top: 1%;
+}
+#increment.hover{ 
+  color: #ffffff !important;
+  background: black;
+  border-color: black !important;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
+}
+
+.startGameTitle {
+  color: black;
+}
+
+#whiteLabel { 
+  color:black;
+}
+
+#blackLabel { 
+  color: black;
+}
+
+.startGameBtn{ 
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 0.5%;
+  border: 5px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  margin-left: 10px;
+  font-family: 'MuseoModerno', cursive;
+  border-color: black;
+  margin-top: 1%;
+  font-size: 20px;
+}
+
+.startGameBtn.hover { 
+  color: #ffffff !important;
+  background: black;
+  border-color: black !important;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
 }

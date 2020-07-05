@@ -71,14 +71,14 @@ io.on('connection', (socket) => {
     
     socket.to(room).emit("messageReceived", msg);
   });
-  socket.on("game_started", ({room, time}) => {
-    
+  socket.on("game_started", ({room, time, color}) => {
+    console.log('a game was started');
   
-    socket.to(room).emit("game_started", time);
+    socket.to(room).emit("game_started", {time, color});
   });
-  socket.on("move", ({move, board, room}) => {
-    console.log('I sent a legal move lmao')
-    socket.to(room).emit("move", move, board);
+  socket.on("legal_move", ({move, room}) => {
+    console.log('I sent a legal move lmao');
+    socket.to(room).emit("legal_move", move);
   });
 
 
