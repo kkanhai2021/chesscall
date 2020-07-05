@@ -2142,8 +2142,8 @@ function onSnapEndL () {
   board2.position(game.fen())
 }
 
-socket.on("legal_move", move => {
-  console.log('move');
+socket.on("legal_move", (move) => {
+  console.log('the lega move function fire', move);
   game.move(move);
   board.position(move);
   
