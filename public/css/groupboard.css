@@ -1,13 +1,29 @@
-body { 
-    overflow:hidden;
+.board { 
+    grid-column: 2; 
+    grid-row: 1 /3;
+    margin-top:20%;
+    width:90%;
+    height:85%;
+    align-items: center;
+  
 }
 .teacherboard{ 
-    padding-top: 150px;
-    margin: auto; 
-
+  
+   width: 58vh;
+   top:0;
+   margin-top: 4%;
+   
+   
+     
 
 }
 
+.roomname { 
+    text-align: center;
+    
+    color:#333333; 
+    
+}
 
 .undomove{ 
     color: #000000 !important;
@@ -18,8 +34,8 @@ body {
     display: inline-block;
     transition: all 0.4s ease 0s;
     
-    
     margin-left: 10px;
+    font-family: 'MuseoModerno', cursive;
 }
 .undomove:hover{
     
@@ -27,12 +43,12 @@ body {
     background: black;
     border-color: black !important;
     transition: all 0.4s ease 0s;
-    
+    font-family: 'MuseoModerno', cursive;
 }
 
 
 .clearboard{
-	margin-left: 10px;
+    margin-left: 10px;
     color: #000000 !important;
     text-decoration: none;
     background: #ffffff;
@@ -42,6 +58,7 @@ body {
     transition: all 0.4s ease 0s;
     font-family: 'MuseoModerno', cursive;
     
+    
 }
 .clearboard:hover {
     color: #ffffff !important;
@@ -49,13 +66,14 @@ body {
     border-color: black !important;
     transition: all 0.4s ease 0s;
     font-family: 'MuseoModerno', cursive;
+    
 }
 
 
         
 
 .flipboard{
-	margin-left: 10px;
+    margin-left: 10px;
     margin-left: 10px;
     color: #000000 !important;
     text-decoration: none;
@@ -89,7 +107,7 @@ body {
     font-family: 'MuseoModerno', cursive;
 }
 .startpos:hover {
-	color: #ffffff !important;
+    color: #ffffff !important;
     background: black;
     border-color: black !important;
     transition: all 0.4s ease 0s;
@@ -98,8 +116,22 @@ body {
 
 .centerbuttons { 
     text-align:center; 
-    font-family:'MuseoModerno', cursive;
+    font-family: 'MuseoModerno', cursive;
 
+}
+
+
+#megadodoo { 
+
+   
+    
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    margin-top: 10px;
+    
 }
 
 
@@ -169,55 +201,56 @@ body {
 
 
 
-
-
-
-
-
-
-
-
-body, html {
-
-    height: 100%;
+#undomove{ 
+    padding-left:1%;
+    padding-right:1%;
 }
 
+#flipboard{ 
+    padding-left:3%;
+    padding-right:3%;
+}
+
+#bruv{
+  
+}
+.newClass { 
+  margin-top:35px;
+
+}
 #videos {
-    padding-top: 0px;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin-left: 20px;
-    margin-right: auto;
+    
+
+    
+    
+    
     
 }
 
 #subscriber {
-    position: absolute;
-    width: 360px;
-    height: 520px;
-    bottom: 50px;
-    left: 30px;
-    z-index: 100;
+    margin-top:30%;
+    height: 70%;
+    width:78%;
     border: 3px solid black;
     border-radius: 3px;
-    margin-top: auto;
-    margin-bottom: auto;
+    grid-row: 1 / 2;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    grid-column: 1;
+    
 }
 
 #publisher {
-    position: absolute;
-    width: 360px;
-    height: 245px;
-    bottom: 110px;
-    left: 30px;
-    z-index: 100;
+    
+    height: 70% ;
+    width:75%;
+    grid-row: 2/3;
+    grid-column: 1;
     border: 3px solid black;
     border-radius: 3px;
-    margin-bottom: 200px;
-    visibility:hidden;
     
-
+    
+    
 }
 
 .startRoom { 
@@ -240,7 +273,6 @@ body, html {
 
 .chatElement { 
     position: relative;
-    padding-top:100px;
     max-width: 400px;
     max-height: 600px;
     height: 550px;
@@ -258,6 +290,7 @@ body, html {
     padding: 10px;
     margin: 10px 0;
     max-width: 400px;
+
    
     
   }
@@ -294,6 +327,7 @@ body, html {
     margin-left: 3px;
 }
 .sendMessageBtn { 
+    
     position: absolute; 
     bottom: 0;
     right: 0;
@@ -304,31 +338,575 @@ body, html {
     font-family: 'MuseoModerno', cursive;
     padding-top:19px;
     margin-right:3px;
+    
+
+}
+.popup .overlay {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+  }
+  
+  .popup .content {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:500px;
+    height:250px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+  }
+  
+  .popup .close-btn {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+  }
+  
+  .popup.active .overlay {
+    display:block;
+  }
+  
+  .popup.active .content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+.fen{ 
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
+    padding-top:5px;
 
 }
 
 
+.gghh { 
+    align-items:center;
+    width: 95vw;
+    height: 95vh;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 41% 41% 15%;
+    
+    margin: auto;
+    
+    
 
-
-
-
-
-
-
-
-
-
-.joinARoom { 
-    text-align:center; 
-    padding-top: 20px;
-    font-family:'MuseoModerno', cursive;
 }
 
-#roomName { 
+.optionButtons{ 
+    
+    max-height: 15%;
+    max-width:15%;
+}
+
+.chatSection { 
+    margin-top:13%;
+    grid-column: 3 ; 
+    grid-row: 1 / 3 ; 
+    margin-left:15%;
+    width: 88%;
+    border-color:black;
     border-style: solid;
-    border-color: black;
-    border-width: 3px;
-    padding:7px;
+    height: 74%;
+   
+}
+.chatBox { 
+  font-family: 'MuseoModerno', cursive;
+  position: absolute;
+  bottom:23%;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  margin-left: -0.3%;
+  width: 23.5%;
+  height:4%;
+}
+
+
+
+.tools{
+    
+    grid-column: 2 ;
+    grid-row: 3;
+    justify-content: center;
+    align-items: center;
+    height:100%;
+    margin-top:5%;
+    width:100%;
+
+}
+
+.toolBtns { 
+    margin-top:3%;
+    color: #000000 !important;
+    text-decoration: none;
+    background: #ffffff;
+   
+    border-style: solid;
+    border-color: #000000;
+    border-width:0.3vh;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+    margin-left:1.0%;
+    grid-column: 2;
+    grid-row:3;
+    font-size: 2vh;
+    bottom:0;
+    
+}
+.toolBtns:hover{
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+}
+
+.sC{
+ margin-left: 10px;
+
+}
+
+.send{ 
+  position:absolute;
+  bottom: 23%;
+  margin-left: 23.7%;
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  width: 4%;
+  border-style: solid;
+  border-color:black;
+  border-width: 3px;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
+  height:4%;
+  font-size:2vh;
+  margin-top:5%;
+}
+
+.send:hover { 
+    color: #ffffff !important;
+    background: black;
+    border-color: black !important;
+    transition: all 0.4s ease 0s;
+    font-family: 'MuseoModerno', cursive;
+
+}
+
+#call { 
+    padding-right: 1.5%;
+    padding-left: 1.5%;
     
 }
 
+.help {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #000000;
+    font-size: 2vh;
+    background: #ffffff;
+    outline:none;
+    border: solid #000000 2px;
+    text-decoration: none;
+    grid-column:3;
+    grid-row:3;
+    position:absolute;
+    bottom:3%;
+    right: 4%;
+    font-family: 'MuseoModerno', cursive;
+    outline:none;
+  }
+  
+.help:hover {
+    outline:none;
+    background: #0f0d0f;
+    background-image: -webkit-linear-gradient(top, #0f0d0f, #000000);
+    background-image: -moz-linear-gradient(top, #0f0d0f, #000000);
+    background-image: -ms-linear-gradient(top, #0f0d0f, #000000);
+    background-image: -o-linear-gradient(top, #0f0d0f, #000000);
+    background-image: linear-gradient(to bottom, #0f0d0f, #000000);
+    text-decoration: none;
+  }
+
+.displayIssues {
+
+    grid-column:3;
+    grid-row:3;
+}
+
+.headdick { 
+    color:black;
+    text-align:center;
+    width:100%;
+    font-family: 'MuseoModerno', cursive;
+}
+
+#app{ 
+    grid-column:3;
+    grid-row:3;
+    margin-top:10%;
+    margin-left:20%;
+}
+
+.base-timer {
+    position: relative;
+    width: 20vh;
+    height: 20vh;
+  }
+  
+  .base-timer__svg {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed {
+    stroke-width: 1vh;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining {
+    stroke-width: 1vh;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining.green {
+    color: black;
+  }
+  
+  .base-timer__path-remaining.orange {
+    color: orange;
+  }
+  
+  .base-timer__path-remaining.red {
+    color: red;
+  }
+  
+  .base-timer__label {
+    position: absolute;
+    width: 20vh;
+    height: 20vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+  }
+
+  
+
+
+
+
+  .base-timer2 {
+    position: relative;
+    width: 20vh;
+    height: 20vh;
+  }
+  
+  .base-timer__svg2 {
+    transform: scaleX(-1);
+  }
+  
+  .base-timer__circle2 {
+    fill: none;
+    stroke: none;
+  }
+  
+  .base-timer__path-elapsed2 {
+    stroke-width: 1vh;
+    stroke: grey;
+  }
+  
+  .base-timer__path-remaining2 {
+    stroke-width: 1vh;
+    stroke-linecap: round;
+    transform: rotate(90deg);
+    transform-origin: center;
+    transition: 1s linear all;
+    fill-rule: nonzero;
+    stroke: currentColor;
+  }
+  
+  .base-timer__path-remaining2.green {
+    color: black;
+  }
+  
+  .base-timer__path-remaining2.orange {
+    color: orange;
+  }
+  
+  .base-timer__path-remaining2.red {
+    color: red;
+  }
+  
+  .base-timer__label2 {
+    position: absolute;
+    width: 20vh;
+    height: 20vh;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vh;
+  }
+  
+  
+  .popup2 .overlay2 {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+  }
+  
+  .popup2 .content2 {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:500px;
+    height:250px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    box-sizing:border-box;
+    font-family:"Open Sans",sans-serif;
+  }
+  
+  .popup2 .close-btn2 {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#222;
+    color:#fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+  }
+  
+  .popup2.active2 .overlay2 {
+    display:block;
+  }
+  
+  .popup2.active2 .content2 {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+
+.copy { 
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 8px;
+  border: 4px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  
+  margin-left: 20px;
+  font-family: 'MuseoModerno', cursive;
+
+}
+.copy:hover{ 
+  color: #ffffff !important;
+  background: black;
+  border-color: black !important;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
+
+}
+
+#popupTitle{ 
+  color:black;
+}
+
+
+.startBtn { 
+  color: #000000 !important;
+  text-decoration: none;
+  background: #ffffff;
+  padding: 8px;
+  border: 4px solid #000000 !important;
+  display: inline-block;
+  transition: all 0.4s ease 0s;
+  
+  margin-left:30px;
+  font-family: 'MuseoModerno', cursive;
+
+}
+.startBtn:hover{ 
+  color: #ffffff !important;
+  background: black;
+  border-color: black !important;
+  transition: all 0.4s ease 0s;
+  font-family: 'MuseoModerno', cursive;
+
+}
+
+.hide {
+  position:absolute;
+  left:-9999px;
+}
+
+.spacing { 
+  margin-left:10px;
+}
+
+.troubleshooting{ 
+  color:black;
+  text-decoration: underline red;
+}
+
+.notice { 
+  margin-top: 20px;
+}
+
+.troubletext{ 
+  font-size: 22px;
+}
+
+.speechbubble {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+  margin-top:2%;
+	position: relative;
+	background: #000000;
+  border-radius: 2.5em;
+  width:50%;
+  margin-left:48%;
+  padding:2%;
+  margin-bottom:1%;
+}
+
+.speechbubble:after {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.75em solid transparent;
+	border-left-color: #000000;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -0.375em;
+	margin-right: -0.75em;
+}
+
+.speechbubble2 {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+  margin-top:3%;
+	position: relative;
+	background: #BEC0C2;
+  border-radius: 2.5em;
+  width:50%;
+  margin-left:2%;
+  padding:0.5%;
+}
+
+.speechbubble2:after {
+  font-size: 2vh;
+  font-family: 'MuseoModerno', cursive;
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.594em solid transparent;
+	border-right-color: #b0b0b0;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -0.297em;
+	margin-left: -0.594em;
+}
+.myTimer{ 
+  display: inline-block;
+  
+  
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishKiller { 
+  
+  
+  position:absolute;
+  margin-left:61vw;
+  
+}
+
+#person { 
+  color: grey;
+}
+
+.oppTimer{ 
+  display: inline-block;
+ 
+  
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishSaver { 
+  position:absolute;
+  margin-left:26%;
+  
+  
+}
+
+.positioner { 
+    
+}

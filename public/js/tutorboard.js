@@ -2226,7 +2226,7 @@ function onDropL (source, target) {
     socket.emit('legal_move', ({move, board, room}));
     pauseMyTimer();
     startOppTimer();
-    
+    socket.emit('stopOppTimer', (room));
     
   }
 }
@@ -2365,7 +2365,8 @@ function editor() {
   socket.emit('editor', (room));
 
 
-
+ clearInterval(lol);
+ clearInterval(lol2);
 
 }
 count = null;
@@ -2436,6 +2437,25 @@ var lol2=null;
 
 function pauseMyTimer() { 
   count = count + increment; 
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("mySeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("myMinutes").innerHTML = updatedseconds;
+  }
+  
   clearInterval(lol);
 }
 
@@ -2506,7 +2526,26 @@ function startOppTimer() {
 }
 
 function pauseOppTimer() { 
-  count = count + increment; 
+  count2 = count2 +  increment; 
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("oppMinutes").innerHTML = updatedseconds;
+  }
+  
   clearInterval(lol2);
 }
 

@@ -867,3 +867,45 @@
 	margin-top: -0.297em;
 	margin-left: -0.594em;
 }
+.myTimer{ 
+  display: inline-block;
+  
+  
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishKiller { 
+  
+  
+  position:absolute;
+  margin-left:61vw;
+  
+}
+
+#person { 
+  color: grey;
+}
+
+.oppTimer{ 
+  display: inline-block;
+ 
+  
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishSaver { 
+  position:absolute;
+  margin-left:26%;
+  
+  
+}
+
+.positioner { 
+    
+}

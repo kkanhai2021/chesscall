@@ -2059,7 +2059,7 @@ modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', fu
 
 // add another button
 modal.open();
-
+var increment2=null;
 var helpModal = new tingle.modal({
   footer: false,
   stickyFooter: true,
@@ -2085,6 +2085,7 @@ var helpModal = new tingle.modal({
  // helpModal.close();
   
 //});
+var timer=null;
 var audio = new Audio('move.mp3');
 helpModal.setContent("<h1 class='troubleshooting'>Troubleshooting</h1><h2 class='troubleshooting notice'>Notice:</h2><p class='troubletext'>We apologize for any inconveniances we may have caused you. The small dedicated team at ChessCall will try to resolve these issues as soon as possible. Below you will find a brief guide on fixing some of the most common issues.</p><h2 class='troubleshooting'>Display Issues:</h2> <img src='images/messedUpBoard.png' width='775' height='400' style='border-style: solid; border-color: black;'><p class='troubletext'>Board looking all jumbled? No worries! Just resize the window (try both horizontally and vertically).</p><h2 class='troubleshooting'>Button Issues:</h2><p class='troubletext'>Buttons not working? Try clearing the board and hiting start posistion.</p>");
 var game = null;
@@ -2107,8 +2108,16 @@ socket.on("game_started", ({time, color, increment}) => {
     onSnapEnd: onSnapEndL,
     orientation: orient
   })
+  timer = time;
+  setMyTimer();
+  setOppTimer();
 
-  
+  if(color=='white') { 
+    startOppTimer();
+  } else if (color=='black') { 
+    startMyTimer();
+  }
+  increment2= increment;
 });
 
 function onDragStartL (source, piece, position, orientation) {
@@ -2138,6 +2147,8 @@ function onDropL (source, target) {
     console.log('attempting to log the move', move);
     socket.emit('legal_move', ({move, board, room}));
     socket.emit('stopOppTimer', (room));
+    pauseMyTimer();
+    startOppTimer();
   }
 }
 
@@ -2171,4 +2182,192 @@ socket.on("editor", (room) => {
     onDrop: onDrop,
     orientation: 'black',
   })
+  clearInterval(lol);
+  clearInterval(lol2);
+});
+
+count = null;
+var lol = null;
+
+function setMyTimer() { 
+  console.log("this code ran")
+  var minutes = Math.floor(timer / 60);
+  var seconds = timer - minutes * 60;
+  count = timer * 60;
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("mySeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("myMinutes").innerHTML = updatedseconds;
+  }
+}
+
+function startMyTimer() { 
+  if(timer > 0 ){ 
+    clearInterval(lol);
+    count = count - 1;
+   
+    var updatedminutes = Math.floor(count / 60);
+    var updatedseconds = count - updatedminutes * 60;
+    console.log(updatedseconds);
+    console.log(updatedseconds);
+    if (updatedminutes < 10 ) { 
+      document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+    }
+  
+    if (updatedminutes > 10 ) { 
+      document.getElementById("mySeconds").innerHTML = updatedminutes;
+    }
+    //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+    if (updatedseconds < 10) { 
+      document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+    }
+    
+    if (updatedseconds > 10) {
+      document.getElementById("myMinutes").innerHTML = updatedseconds;
+    }
+
+
+
+  } else { 
+    console.log('returned false')
+    return false;
+  } 
+  lol = setInterval(startMyTimer,1000);    
+}
+
+var count2= null;
+var lol2=null;
+
+function pauseMyTimer() { 
+  count = count + increment2; 
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("mySeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("myMinutes").innerHTML = updatedseconds;
+  }
+  
+  clearInterval(lol);
+}
+
+function setOppTimer() { 
+  
+  var minutes = Math.floor(timer / 60);
+  var seconds = timer - minutes * 60;
+  count2 = timer * 60;
+  
+  var updatedminutes = Math.floor(count2 / 60);
+  var updatedseconds = count2 - updatedminutes * 60;
+  console.log(updatedseconds);
+  console.log(updatedseconds);
+  if (updatedminutes < 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("oppMinutes").innerHTML = updatedseconds;
+  }
+}
+
+function startOppTimer() { 
+  if(timer > 0 ){ 
+    clearInterval(lol2);
+    lol2 = setInterval(startOppTimer, 1000);
+    count2 = count2 - 1;
+    
+    var updatedminutes = Math.floor(count2 / 60);
+    var updatedseconds = count2 - updatedminutes * 60;
+    console.log(updatedseconds);
+    console.log(updatedseconds);
+    
+    if (updatedminutes < 10 ) { 
+      document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+    }
+  
+    if (updatedminutes > 10 ) { 
+      document.getElementById("oppSeconds").innerHTML = updatedminutes;
+    }
+    //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+    if (updatedseconds < 10) { 
+      document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+    }
+    
+    if (updatedseconds > 10) {
+      document.getElementById("oppMinutes").innerHTML = updatedseconds;
+    }
+    
+
+
+
+  } else { 
+    console.log('returned false')
+    return false;
+  } 
+      
+}
+
+function pauseOppTimer() { 
+  count2 = count2 +  increment2; 
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("oppMinutes").innerHTML = updatedseconds;
+  }
+  
+  clearInterval(lol2);
+}
+
+socket.on("stopOppTimer", (room) => {
+  console.log('trying to stop timer');
+  pauseOppTimer();
+  startMyTimer();
 });
