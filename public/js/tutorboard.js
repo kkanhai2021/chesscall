@@ -2509,6 +2509,7 @@ function pauseOppTimer() {
 }
 
 socket.on("stopOppTimer", (room) => {
+  console.log('trying to stop timer');
   pauseOppTimer();
   setInterval(startMyTimer, 1000);
 });

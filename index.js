@@ -86,7 +86,7 @@ io.on('connection', (socket) => {
     socket.to(room).emit("editor", (room));
   });
   socket.on("stopOppTimer", (room) => {
-    console.log('the editor listener fired')
+    console.log('trying to stop timer')
     socket.to(room).emit("stopOppTimer", (room));
   });
 
