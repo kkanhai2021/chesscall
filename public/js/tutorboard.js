@@ -2297,9 +2297,9 @@ startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn-
   setMyTimer();
   setOppTimer();
   if (selectedValue == 'white'){ 
-    lol = setInterval(startMyTimer,1000);
+    startMyTimer();
   } else if (selectedValue =='black') { 
-    lol2 = setInterval(startOppTimer, 1000);
+    startOppTimer();
   }
   
 
@@ -2428,7 +2428,7 @@ function startMyTimer() {
     console.log('returned false')
     return false;
   } 
-      
+  lol = setInterval(startMyTimer,1000);    
 }
 
 var count2= null;
@@ -2443,7 +2443,7 @@ function setOppTimer() {
   var minutes = Math.floor(time / 60);
   var seconds = time - minutes * 60;
   count2 = time * 60;
-  // lol2 = setInterval(startOppTimer, 1000);
+  lol2 = setInterval(startOppTimer, 1000);
   var updatedminutes = Math.floor(count2 / 60);
   var updatedseconds = count2 - updatedminutes * 60;
   console.log(updatedseconds);
