@@ -71,10 +71,10 @@ io.on('connection', (socket) => {
     
     socket.to(room).emit("messageReceived", msg);
   });
-  socket.on("game_started", ({room, time, color}) => {
+  socket.on("game_started", ({room, time, color, increment}) => {
     console.log('a game was started');
     console.log(color);
-    socket.to(room).emit("game_started", {time, color});
+    socket.to(room).emit("game_started", {time, color, increment});
   });
   socket.on("legal_move", ({move, board, room}) => {
     console.log('the legal move sent was', move);
@@ -85,7 +85,10 @@ io.on('connection', (socket) => {
     console.log('the editor listener fired')
     socket.to(room).emit("editor", (room));
   });
-
+  socket.on("stopOppTimer", (room) => {
+    console.log('the editor listener fired')
+    socket.to(room).emit("stopOppTimer", (room));
+  });
 
 
 

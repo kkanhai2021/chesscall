@@ -131,8 +131,11 @@
       
       <input type=text class ='hide' id='baby'>
 
-
-    <script src="https://chesscall.com/socket.io/socket.io.js"></script>
+     
+      <div class='oppTimer jewishSaver'> <p id='person' class='myTimer'>Student</p> <p class='oppTimer' id='oppSeconds'>00</p> <p class='oppTimer'>:</p> <p class='oppTimer' id='oppMinutes'>00</p> </div>
+      <div class='myTimer jewishKiller'> <p id='person' class='myTimer'>You</p> <p class='myTimer' id='mySeconds'>00</p> <p class='myTimer'>:</p> <p class='myTimer' id='myMinutes'>00</p> </div>
+      
+      <script src="https://chesscall.com/socket.io/socket.io.js"></script>
     <script>
       const socket = io('https://chesscall.com');
     </script>

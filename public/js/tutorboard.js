@@ -1,3 +1,4 @@
+
 /*
  * Copyright (c) 2020, Jeff Hlywa (jhlywa@gmail.com)
  * All rights reserved.
@@ -2201,7 +2202,10 @@ function onDragStartL (source, piece, position, orientation) {
   // do not pick up pieces if the game is over
   if (game.game_over()) return false
 
-  // only pick up pieces for the side to move
+  if ((game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+      (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+    return false
+  }
   
 }
 
@@ -2220,6 +2224,10 @@ function onDropL (source, target) {
     console.log('attempting to log the move', move);
     var board = game.fen()
     socket.emit('legal_move', ({move, board, room}));
+    pauseMyTimer();
+    lol2 = setInterval(startOppTimer, 1000);
+    
+    
   }
 }
 
@@ -2254,11 +2262,13 @@ var startGame = new tingle.modal({
 
 startGame.setContent("<h1 class='startGameTitle'>Start a Game <h2> <input id='minutes' type='text' placeholder ='Enter Minutes Per Side '><input id='increment' type='text' placeholder ='Increment in Seconds'> <br> <input id='white' value ='white' type='radio' name = 'side'> <label id='whiteLabel' for='white'>White</label> <input value='black' id='black' type='radio' name = 'side'>  <label id='blackLabel' for='black'>Black</label><br> <p></p>");
 
-time=60;
-
+var time=null;
+var increment= null;
 startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn--pull-right startGameBtn', function() {
+  pauseMyTimer();
+  pauseOppTimer();
   const rbs = document.querySelectorAll('input[name="side"]');
-  let selectedValue;
+  
   for (const rb of rbs) {
       if (rb.checked) {
           selectedValue = rb.value;
@@ -2279,7 +2289,21 @@ startGame.addFooterBtn('Start game', 'tingle-btn tingle-btn--primary tingle-btn-
     orientation: selectedValue
   })
   game = new Chess();
-  socket.emit("game_started", ({room, color, time}));
+  time = Number(document.getElementById('minutes').value);
+  increment = Number(document.getElementById('increment').value);
+  console.log(time);
+  console.log(increment);
+  socket.emit("game_started", ({room, color, time, increment}));
+  setMyTimer();
+  setOppTimer();
+  if (selectedValue == 'white'){ 
+    lol = setInterval(startMyTimer,1000);
+  } else if (selectedValue =='black') { 
+    lol2 = setInterval(startOppTimer, 1000);
+  }
+  
+
+
   startGame.close();
 });
 
@@ -2344,3 +2368,149 @@ function editor() {
 
 
 }
+count = null;
+var lol = null;
+
+function setMyTimer() { 
+  console.log("this code ran")
+  var minutes = Math.floor(time / 60);
+  var seconds = time - minutes * 60;
+  count = time * 60;
+  var updatedminutes = Math.floor(count / 60);
+  var updatedseconds = count - updatedminutes * 60;
+  if (updatedminutes < 10 ) { 
+    document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("mySeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("myMinutes").innerHTML = updatedseconds;
+  }
+}
+
+function startMyTimer() { 
+  if(time > 0 ){ 
+    
+    count = count - 1;
+    var count2 = count / 60;
+    var updatedminutes = Math.floor(count / 60);
+    var updatedseconds = count - updatedminutes * 60;
+    console.log(updatedseconds);
+    console.log(updatedseconds);
+    if (updatedminutes < 10 ) { 
+      document.getElementById("mySeconds").innerHTML = '0' + updatedminutes;
+    }
+  
+    if (updatedminutes > 10 ) { 
+      document.getElementById("mySeconds").innerHTML = updatedminutes;
+    }
+    //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+    if (updatedseconds < 10) { 
+      document.getElementById("myMinutes").innerHTML = '0' + updatedseconds;
+    }
+    
+    if (updatedseconds > 10) {
+      document.getElementById("myMinutes").innerHTML = updatedseconds;
+    }
+
+
+
+  } else { 
+    console.log('returned false')
+    return false;
+  } 
+      
+}
+
+var count2= null;
+var lol2=null;
+
+function pauseMyTimer() { 
+  count = count + increment; 
+  clearInterval(lol);
+}
+
+function setOppTimer() { 
+  var minutes = Math.floor(time / 60);
+  var seconds = time - minutes * 60;
+  count2 = time * 60;
+  // lol2 = setInterval(startOppTimer, 1000);
+  var updatedminutes = Math.floor(count2 / 60);
+  var updatedseconds = count2 - updatedminutes * 60;
+  console.log(updatedseconds);
+  console.log(updatedseconds);
+  if (updatedminutes < 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+  }
+
+  if (updatedminutes > 10 ) { 
+    document.getElementById("oppSeconds").innerHTML = updatedminutes;
+  }
+  //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+  if (updatedseconds < 10) { 
+    document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+  }
+  
+  if (updatedseconds > 10) {
+    document.getElementById("oppMinutes").innerHTML = updatedseconds;
+  }
+}
+
+function startOppTimer() { 
+  if(time > 0 ){ 
+    
+    count2 = count2 - 1;
+    
+    var updatedminutes = Math.floor(count2 / 60);
+    var updatedseconds = count2 - updatedminutes * 60;
+    console.log(updatedseconds);
+    console.log(updatedseconds);
+    
+    if (updatedminutes < 10 ) { 
+      document.getElementById("oppSeconds").innerHTML = '0' + updatedminutes;
+    }
+  
+    if (updatedminutes > 10 ) { 
+      document.getElementById("oppSeconds").innerHTML = updatedminutes;
+    }
+    //document.getElementById("oppSeconds").innerHTML = updatedminutes;
+
+    if (updatedseconds < 10) { 
+      document.getElementById("oppMinutes").innerHTML = '0' + updatedseconds;
+    }
+    
+    if (updatedseconds > 10) {
+      document.getElementById("oppMinutes").innerHTML = updatedseconds;
+    }
+    
+
+
+
+  } else { 
+    console.log('returned false')
+    return false;
+  } 
+      
+}
+
+function pauseOppTimer() { 
+  count = count + increment; 
+  clearInterval(lol2);
+}
+
+socket.on("stopOppTimer", (room) => {
+  pauseOppTimer();
+  setInterval(startMyTimer, 1000);
+});
+
+var selectedValue = null;

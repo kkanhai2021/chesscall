@@ -969,3 +969,50 @@
 	margin-left: -0.594em;
 }
 
+.myTimer{ 
+  display: inline-block;
+  grid-row: 3; 
+  grid-column:1;
+  justify-items: center;
+  align-items: center;
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishKiller { 
+  
+  
+  border-color:black;
+  margin-left:12%;
+  top:0%;
+  
+  
+}
+
+#person { 
+  color: grey;
+}
+
+.oppTimer{ 
+  display: inline-block;
+  grid-row: 3; 
+  grid-column:1;
+  justify-items: center;
+  align-items: center;
+  font-family: 'MuseoModerno', cursive;
+  color:black;
+  font-size:2vh;
+  
+}
+
+.jewishSaver { 
+  
+  
+  border-color:black;
+  margin-left:35%;
+  top:0%;
+  
+  
+}
