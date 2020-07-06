@@ -2225,7 +2225,7 @@ function onDropL (source, target) {
     var board = game.fen()
     socket.emit('legal_move', ({move, board, room}));
     pauseMyTimer();
-    lol2 = setInterval(startOppTimer, 1000);
+    startOppTimer();
     
     
   }
