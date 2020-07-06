@@ -2440,11 +2440,11 @@ function pauseMyTimer() {
 }
 
 function setOppTimer() { 
-  clearInterval(lol2);
+  
   var minutes = Math.floor(time / 60);
   var seconds = time - minutes * 60;
   count2 = time * 60;
-  lol2 = setInterval(startOppTimer, 1000);
+  
   var updatedminutes = Math.floor(count2 / 60);
   var updatedseconds = count2 - updatedminutes * 60;
   console.log(updatedseconds);
@@ -2469,7 +2469,8 @@ function setOppTimer() {
 
 function startOppTimer() { 
   if(time > 0 ){ 
-    
+    clearInterval(lol2);
+    lol2 = setInterval(startOppTimer, 1000);
     count2 = count2 - 1;
     
     var updatedminutes = Math.floor(count2 / 60);
