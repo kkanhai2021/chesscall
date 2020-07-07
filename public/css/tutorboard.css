@@ -560,6 +560,7 @@
     background-image: -o-linear-gradient(top, #0f0d0f, #000000);
     background-image: linear-gradient(to bottom, #0f0d0f, #000000);
     text-decoration: none;
+    color:white;
   }
 
 .displayIssues {
@@ -1015,4 +1016,29 @@
   top:0%;
   
   
+}
+
+.imageToFen {
+  width:10vw;
+  -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: 'MuseoModerno', cursive;
+    color: #000000;
+    font-size: 2vh;
+    background: #ffffff;
+    outline:none;
+    border: solid #000000 2px;
+    text-decoration: none;
+    grid-row:3; 
+    grid-column:1;
+    position:relative;
+    bottom:0;
+    margin-top:30%;
+}
+.imageToFen:hover { 
+   
+    background: black;
+    border-color: black !important;
+    color:white;
 }

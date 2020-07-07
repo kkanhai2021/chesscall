@@ -2556,3 +2556,33 @@ socket.on("stopOppTimer", (room) => {
 });
 
 var selectedValue = null;
+
+
+var fenSite = new tingle.modal({
+  footer: false,
+  stickyFooter: true,
+  closeMethods: ['overlay','escape'],
+  closeLabel: "Close",
+  cssClass: ['custom-class-1', 'custom-class-2'],
+  onOpen: function() {
+      console.log('modal open');
+  },
+  onClose: function() {
+      
+      console.log('modal closed');
+  },
+  beforeClose: function() {
+      // here's goes some logic
+      // e.g. save content before closing the modal
+      return true; // close the modal
+      return false; // nothing happens
+  }
+});
+
+//helpModal.addFooterBtn('Back','tingle-btn tingle-btn--danger tingle-btn--pull-right copy', function() {
+ // helpModal.close();
+  
+//});
+
+fenSite.setContent("<h1 class='troubleshooting'>Convert Image to Fen</h1><iframe src='https://www.ocf.berkeley.edu/~abhishek/putz/' title='Fen Embed' width='100%' height='500px'></iframe>");
+time = 60;
