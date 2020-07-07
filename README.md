@@ -5,7 +5,7 @@ A free tool for teaching chess online.
 
 # Dependencies
 
-@chrisoakman/chessboardjs: 1.0.0 <br>
+chrisoakman/chessboardjs: 1.0.0 <br>
 chess.js: 0.11.0, <br>
 express:  4.17.1,<br>
 nodejs: 0.0.0,<br>
