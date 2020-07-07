@@ -65,7 +65,7 @@
                 
                 
                 
-                <li><a href="aboutus.html"  class="nav-link">About Us</a></li>
+                <li><a href='aboutus.html' class="nav-link">About Us</a></li>
               </ul>
             </nav>
           </div>
@@ -77,14 +77,14 @@
       </div>
       
     </header>
-
+    
   
     <section class="site-blocks-cover overflow-hidden bg-light">
       <div class="container">
         <div class="row">
           <div class="col-md-7 align-self-center text-center text-md-left">
             <div class="intro-text">
-              <h1>A new way <span class="d-md-block">to teach chess</span></h1>
+                <p id='credits'>Created by Anthony Dimaggio, George Eilender, and Karl Kanhai</p><p id ='motto'> 3 high schoolers with a love for chess and a dream of sharing that love with all.</p> 
               <p class="mb-4"><span class="d-block"></p>
             </div>
           </div>
@@ -96,18 +96,28 @@
     </section> 
     <section id="section03" class="demo">
   
-  <a href="#buttons"><span></span>Start</a>
+  
     </section>
 
-    <section id='buttons'>
-   <button onclick='createRoom();'>Start Lesson</button>
-   <button onclick='joinRoom();'>Join a Private Lesson</button>
-   <button onclick='joinGroup();'>Join a Group Lesson</button>
-   <section id='buttons'>
+   
 
    <style>
    @import url(https://fonts.googleapis.com/css?family=Roboto:100,400,300);
+#mek { 
+    width:30px;
+    height: 30px;
+}
 
+
+   #motto { 
+    color: grey;
+    font-size:3vh;
+}
+
+   #credits { 
+    color:black;
+    font-size:5vh;
+}
 body {
   background-color: black;
 }
@@ -174,16 +184,7 @@ section h1 {
   white-space: nowrap;
 }
 
-#section01 { background: url(https://picsum.photos/1200/800?image=575) center center / cover no-repeat;}
-#section02 { background: url(https://picsum.photos/1200/800?image=1016) center center / cover no-repeat;}
-#section03 { background: url(https://picsum.photos/1200/800?image=869) center center / cover no-repeat;}
-#section04 { background: url(https://picsum.photos/1200/800?image=506) center center / cover no-repeat;}
-#section05 { background: url(https://picsum.photos/1200/800?image=1037) center center / cover no-repeat;}
-#section06 { background: url(https://picsum.photos/1200/800?image=901) center center / cover no-repeat;}
-#section07 { background: url(https://picsum.photos/1200/800?image=675) center center / cover no-repeat;}
-#section08 { background: url(https://picsum.photos/1200/800?image=1050) center center / cover no-repeat;}
-#section09 { background: url(https://picsum.photos/1200/800?image=902) center center / cover no-repeat;}
-#section10 { background: url(https://picsum.photos/1200/800?image=516) center center / cover no-repeat;}
+
 
 .demo a {
   position: absolute;
@@ -348,7 +349,11 @@ section h1 {
     location.href = "https://chesscall.com/groupboard.html";
   }
 
-
+  function goToGithub() { 
+       
+       location.href = "https://duckduckgo.com/?q=github&ia=web";
+       
+}
 
 </script>
   <script src="js/jquery-3.3.1.min.js"></script>
