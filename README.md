@@ -6,6 +6,6 @@ A free tool for teaching chess online.
 
 
 # Credits: 
-George Eilender
-Anthony DiMaggio
+George Eilender <br>
+Anthony DiMaggio <br>
 Karl Kanhai
