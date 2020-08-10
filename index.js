@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
   	res.sendFile(__dirname + '/public/studentboard.htm');
  } else { 
 	res.sendFile(__dirname + '/public/studentboard.html');
- }
+ 
 }
 
 });
