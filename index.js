@@ -31,7 +31,7 @@ const credentials = {
 app.get('/', (req, res) => {
   var hostname = os.hostname();
   if(hostname == "wwww.chesscall.com") { 
-  console.log("domain is chesscall.com)
+  console.log("domain is chesscall.com")
   res.sendFile(__dirname + '/public/index.html');
  } else { 
 	res.sendFile(__dirname + '/public/tutorboard.html');
