@@ -8,7 +8,7 @@ var server = https.createServer({
   cert: fs.readFileSync('/etc/letsencrypt/live/chesscall.com/cert.pem') 
 },app);
 server.listen(3000);
-
+var os = require("os");
 var io = require('socket.io').listen(server);
 app.use(express.static('public'));
 /*
@@ -29,8 +29,14 @@ const credentials = {
 
 //app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
+  var hostname = os.hostname();
+  if(hostname == "wwww.chesscall.com" { 
+     
   res.sendFile(__dirname + '/public/index.html');
+ } else { 
+	res.sendFile(__dirname + '/public/tutorboard.html');
   
+	}
 
 });
 
