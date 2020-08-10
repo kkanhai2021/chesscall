@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   
   if(os.hostname() == "wwww.chesscall.com") { 
   	console.log("domain is chesscall.com")
-  	res.sendFile(__dirname + '/public/studentboard.htm');
+  	res.sendFile(__dirname + '/public/studentboard.html');
  } else { 
 	res.sendFile(__dirname + '/public/studentboard.html');
  
