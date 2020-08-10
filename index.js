@@ -29,13 +29,14 @@ const credentials = {
 
 //app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
+  console.log('this code ran');
   var hostname = os.hostname();
   if(hostname == "wwww.chesscall.com") { 
-  console.log("domain is chesscall.com")
-  res.sendFile(__dirname + '/public/index.html');
+  	console.log("domain is chesscall.com")
+  	res.sendFile(__dirname + '/public/index.html');
  } else { 
 	res.sendFile(__dirname + '/public/tutorboard.html');
-  
+ }
 }
 
 });
