@@ -30,12 +30,12 @@ const credentials = {
 //app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
   console.log('this code ran');
-  var hostname = os.hostname();
-  if(hostname == "wwww.chesscall.com") { 
+  
+  if(os.hostname() == "wwww.chesscall.com") { 
   	console.log("domain is chesscall.com")
-  	res.sendFile(__dirname + '/public/index.html');
+  	res.sendFile(__dirname + '/public/studentboard.htm');
  } else { 
-	res.sendFile(__dirname + '/public/tutorboard.html');
+	res.sendFile(__dirname + '/public/studentboard.html');
  }
 }
 
