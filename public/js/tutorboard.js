@@ -1968,6 +1968,7 @@ socket.on("move_made", move => {
 
 function getToken(id) { 
   var tokenList = ['T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9ZWRlYjkzOWEyMjI3NmJlY2IzMTk2NGMzNGFkNWJhYTZiZDE5OTYxNzpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVPVGc1TXpjNU5qQTJOWDVpVFhGVFUzWTRVeTkwVkdZM2VWUkRSVkJsTVZsMVExZC1mZyZjcmVhdGVfdGltZT0xNTk5ODkzODEzJm5vbmNlPTAuNzU3ODY2NTgyNDU5OTU1MSZyb2xlPXN1YnNjcmliZXImZXhwaXJlX3RpbWU9MTYwMjQ4NTgxMiZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==']
+  var tokenIndex = parseInt(roomList.indexOf(id));
   var token = tokenList[tokenIndex];
   return token;
 }
