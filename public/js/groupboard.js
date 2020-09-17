@@ -216,7 +216,8 @@ var Chess = function(fen) {
       keep_headers = false
     }
 
-    var tokens = fen.split(/\s+/)
+    var 
+    s = fen.split(/\s+/)
     var position = tokens[0]
     var square = 0
 
@@ -1908,7 +1909,7 @@ var apiKey = "46803054";
 
 // sets the config of the board
 var config = {
-    draggable: false,
+    draggable: true,
     position: 'start',
     onDrop: onDrop,
     orientation: 'black',
@@ -1919,7 +1920,7 @@ var config = {
 var board = Chessboard('myBoard', config)
 
 
-var roomList = ['2_MX40NjgwMzA1NH5-MTU5Mjc4NzAzMDc4NH5mQTFiRlArVUk2d2xPQmVhY01vdHJaOG9-fg','2_MX40NjgwMzA1NH5-MTU5MjkzOTY3OTQ5N355Tmt4WVpEbHVocEx4RGowQUEwVG93ZXh-fg', '1_MX40NjgwMzA1NH5-MTU5Mjk0MDAwMDUyNX5FOXM1QWpXSzhlWGw4VGpLNSt0d0FBcnN-fg','1_MX40NjgwMzA1NH5-MTU5Mjk0MDAzNDAwNX5EbUVVd3VvNlQxdkVMaDYycVRGOURsV2l-fg','2_MX40NjgwMzA1NH5-MTU5Mjk0MDEyMTEyOX5OSzRsUVV5L1pLVE4yaktiQnoydisxTEd-fg'];
+var roomList = ['2_MX40NjgwMzA1NH5-MTU5OTg5Mzc5NjA2NX5iTXFTU3Y4Uy90VGY3eVRDRVBlMVl1Q1d-fg'];
 var sessionId = '';
 var token = '';
 function getRoom() { 
@@ -1932,7 +1933,7 @@ function getRoom() {
 }
 
 function getToken(id) { 
-  var tokenList = ['T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9MjdkMWNkY2YwZWZlYjg1Nzk5Y2Q0MzA1ZmZhNjQ1NjQ4NTlhOGMwODpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVNamM0TnpBek1EYzROSDVtUVRGaVJsQXJWVWsyZDJ4UFFtVmhZMDF2ZEhKYU9HOS1mZyZjcmVhdGVfdGltZT0xNTkyNzg3NTE1Jm5vbmNlPTAuNTE0NzUzNjQwNDE3NDE4OSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTk1Mzc5NTE0JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9','T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9OGM3YmJjZWViZTlkOWI2OWVkNmRiNTA4ZjA0MTk2MzhkMWQxOTNiMzpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVNamt6T1RZM09UUTVOMzU1VG10NFdWcEViSFZvY0V4NFJHb3dRVUV3Vkc5M1pYaC1mZyZjcmVhdGVfdGltZT0xNTkyOTM5ODYxJm5vbmNlPTAuNzAzMDY3MjA4NzczOTIzOCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTk1NTMxODYxJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9','T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9NDRiODFjMTg5Y2ZlMjk4MGFhZWQ1ZTNjZjM4ZGEwMTBiNGE1YjJhYzpzZXNzaW9uX2lkPTFfTVg0ME5qZ3dNekExTkg1LU1UVTVNamswTURBd01EVXlOWDVGT1hNMVFXcFhTemhsV0d3NFZHcExOU3QwZDBGQmNuTi1mZyZjcmVhdGVfdGltZT0xNTkyOTQwMDIwJm5vbmNlPTAuMjkzNTk5MTE2MTM3ODEzNTMmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU5NTUzMjAxOSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==','T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9MzE3MTVlMDUyNTI0YzQ3NjVkZjdiZTgwMjgzMzFlYTAwNGQ4ZGM2NjpzZXNzaW9uX2lkPTFfTVg0ME5qZ3dNekExTkg1LU1UVTVNamswTURBek5EQXdOWDVFYlVWVmQzVnZObFF4ZGtWTWFEWXljVlJHT1VSc1YybC1mZyZjcmVhdGVfdGltZT0xNTkyOTQwMDQ4Jm5vbmNlPTAuOTkwNjk1MTU1NTc3MjQ1OSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTk1NTMyMDQ3JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9','T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9Y2NmMmQ0Y2RjYTkyZGVjY2QyZTJmMDdmMTBmYjNmZTY3M2Y0YjJiNjpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVNamswTURFeU1URXlPWDVPU3pSc1VWVjVMMXBMVkU0eWFrdGlRbm95ZGlzeFRFZC1mZyZjcmVhdGVfdGltZT0xNTkyOTQwMTUwJm5vbmNlPTAuNTI5NTc1MTczNjg2MDAyNCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTk1NTMyMTUwJmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9'];
+  var tokenList = ["T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9MTZkZDk1YWQyOWY4NmJlM2VlNjBiNmRlZjk2YTMyOTg0ZTY0NWMwNzpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVPVGc1TXpjNU5qQTJOWDVpVFhGVFUzWTRVeTkwVkdZM2VWUkRSVkJsTVZsMVExZC1mZyZjcmVhdGVfdGltZT0xNTk5ODk0MTg4Jm5vbmNlPTAuMTAwMjg3ODg1NjUxMzQwNSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjAyNDg2MTg3JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9"]
   var tokenIndex = parseInt(roomList.indexOf(id));
   var token = tokenList[tokenIndex];
   
@@ -2101,7 +2102,7 @@ socket.on("game_started", ({time, color, increment}) => {
   }
 
   board2 = Chessboard('board2', {
-    draggable: false,
+    draggable: true,
     position: 'start',
     onDragStart: onDragStartL,
     onDrop: onDropL,
@@ -2177,7 +2178,7 @@ socket.on("editor", (room) => {
   console.log("this function fired");
   board2.destroy();
   board = Chessboard('myBoard', {
-    draggable: false,
+    draggable: true,
     position: 'start',
     onDrop: onDrop,
     orientation: 'black',
