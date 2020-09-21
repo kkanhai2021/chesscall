@@ -31,7 +31,6 @@ const credentials = {
 app.get('/', (req, res) => {
   console.log('this code ran');
   res.sendFile(__dirname + '/public/studentboard.html');
-}
 
 });
 
