@@ -2580,12 +2580,13 @@ createLocalTracks({
   video: { width: 640 }
 }).then(localTracks => {
   return connect('$TOKEN', {
-    name: 'my-room-name',
+    name: 'room1',
     tracks: localTracks
   });
 }).then(room => {
   console.log(`Connected to Room: ${room.name}`);
 });
+
 
 var Video = require('twilio-video');
 // Request audio and video tracks
