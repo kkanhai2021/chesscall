@@ -2560,10 +2560,9 @@ var fenSite = new tingle.modal({
 fenSite.setContent("<h1 class='troubleshooting'>Convert Image to Fen</h1><iframe src='https://www.ocf.berkeley.edu/~abhishek/putz/' title='Fen Embed' width='100%' height='500px'></iframe>");
 time = 60;
 
-
 const { connect } = require('twilio-video');
-
-connect('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzVmMTgxMzMwMGYwOTg3Y2Q5N2U0MTJjZTRjNmE4ZWM2LTE2MDEyMzI0NzEiLCJpc3MiOiJTSzVmMTgxMzMwMGYwOTg3Y2Q5N2U0MTJjZTRjNmE4ZWM2Iiwic3ViIjoiQUNjNTEyNGVjMzg0MjFiNTAzMDBkMzFmY2IxMzUzMDVjOSIsImV4cCI6MTYwMTIzNjA3MSwiZ3JhbnRzIjp7ImlkZW50aXR5Ijoia2FybCIsInZpZGVvIjp7InJvb20iOiJyb29tMSJ9fX0.JG8YstrJr4tRUze3KBUuBV2AuBklyac3svENwVOGiKA', { name:'my-new-room' }).then(room => {
+var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzU1MzliMGQxYzRjYTIyNmEzOTBhZGIyNDllOTgzMzc3LTE2MDEyNDQ1MDAiLCJpc3MiOiJTSzU1MzliMGQxYzRjYTIyNmEzOTBhZGIyNDllOTgzMzc3Iiwic3ViIjoiQUM0OWViZjVkM2UzNmRhMGQ5NTY0YWI3ZmMwMmE0NjVhZSIsImV4cCI6MTYwMTI0ODEwMCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiS2FybCIsInZpZGVvIjp7InJvb20iOiJyb29tMSJ9fX0.qB0C_b5Zul9EiLbhAVvf7goNjlHDyxcp1aAtRoJmfZA"
+connect('$TOKEN', { name:'room1' }).then(room => {
   console.log(`Successfully joined a Room: ${room}`);
   room.on('participantConnected', participant => {
     console.log(`A remote Participant connected: ${participant}`);
@@ -2572,9 +2571,6 @@ connect('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJ
   console.error(`Unable to connect to Room: ${error.message}`);
 });
 
-const { connect, createLocalTracks } = require('twilio-video');
-
-// Option 1
 createLocalTracks({
   audio: true,
   video: { width: 640 }
@@ -2587,12 +2583,3 @@ createLocalTracks({
   console.log(`Connected to Room: ${room.name}`);
 });
 
-
-var Video = require('twilio-video');
-// Request audio and video tracks
-Video.createLocalTracks().then(function(localTracks) {
-  var localMediaContainer = document.getElementById('local-media-container-id');
-  localTracks.forEach(function(track) {
-    localMediaContainer.appendChild(track.attach());
-  });
-});
