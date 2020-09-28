@@ -1,4 +1,7 @@
 var apiKey = "46803054";
+var room = null;
+var token = null;
+var sessionId = null;
 var Chess = function(fen) {
   var BLACK = 'b'
   var WHITE = 'w'
@@ -1937,10 +1940,7 @@ socket.on("move_made", move => {
 
 });
 
-apiKey = '46803054';
-var room = null;
-var token = null;
-var sessionId = null;
+
 socket.emit('join_room', room);
 socket.on("credentials", ({tokennum, roomnum}) => {
   token = tokennum;
