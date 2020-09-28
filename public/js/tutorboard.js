@@ -2560,7 +2560,7 @@ var fenSite = new tingle.modal({
 fenSite.setContent("<h1 class='troubleshooting'>Convert Image to Fen</h1><iframe src='https://www.ocf.berkeley.edu/~abhishek/putz/' title='Fen Embed' width='100%' height='500px'></iframe>");
 time = 60;
 
-const { connect } = require('twilio-video');
+const { connect, createLocalTracks } = 'twilio-video';
 var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTSzU1MzliMGQxYzRjYTIyNmEzOTBhZGIyNDllOTgzMzc3LTE2MDEyNDQ1MDAiLCJpc3MiOiJTSzU1MzliMGQxYzRjYTIyNmEzOTBhZGIyNDllOTgzMzc3Iiwic3ViIjoiQUM0OWViZjVkM2UzNmRhMGQ5NTY0YWI3ZmMwMmE0NjVhZSIsImV4cCI6MTYwMTI0ODEwMCwiZ3JhbnRzIjp7ImlkZW50aXR5IjoiS2FybCIsInZpZGVvIjp7InJvb20iOiJyb29tMSJ9fX0.qB0C_b5Zul9EiLbhAVvf7goNjlHDyxcp1aAtRoJmfZA"
 connect('$TOKEN', { name:'room1' }).then(room => {
   console.log(`Successfully joined a Room: ${room}`);
