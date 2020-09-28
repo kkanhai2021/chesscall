@@ -1937,8 +1937,7 @@ socket.on("move_made", move => {
 
 });
 
-
-
+apiKey = '46803054';
 var room = null;
 var token = null;
 var sessionId = null;
@@ -1949,9 +1948,10 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   room = token; 
 });
 function startRoom() { 
-  apiKey = '46803054';
-  initializeSession('46803054');
-  apiKey = '46803054';
+  alert(sessionId)
+  var apiKey = '46803054';
+  initializeSession();
+ 
 
   
 }
