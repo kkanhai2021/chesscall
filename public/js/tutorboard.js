@@ -1940,13 +1940,16 @@ socket.on("move_made", move => {
 
 
 
+var token = null;
+var sessionId = null;
+socket.emit('join_room', room);
+socket.on("credentials", ({tokennum, roomnum}) => {
+  token = tokennum;
+  sessionId = roomnum;
+  room = token; 
+});
 function startRoom() { 
-  socket.emit('join_room', room);
-  socket.on("stopOppTimer", (room) => {
-    console.log('trying to stop timer')
-    socket.to(room).emit("stopOppTimer", (room));
-  });
-  
+  initializeSession();
   
 
   

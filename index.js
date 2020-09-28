@@ -59,8 +59,8 @@ io.on('connection', (socket) => {
       token = session.generateToken();
       var roomnum = session.sessionId
       socket.join(roomnum);
-      socket.to(room).emit("credentials", {token, roomnum});
-      console.log(roomnum)
+      tokennum = token
+      socket.to(room).emit("credentials", {tokennum, roomnum});
       
     });
     
