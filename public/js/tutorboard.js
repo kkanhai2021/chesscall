@@ -1939,25 +1939,13 @@ socket.on("move_made", move => {
 
 
 
-function getToken(id) { 
-  var tokenList = ['T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9MTZkZDk1YWQyOWY4NmJlM2VlNjBiNmRlZjk2YTMyOTg0ZTY0NWMwNzpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVPVGc1TXpjNU5qQTJOWDVpVFhGVFUzWTRVeTkwVkdZM2VWUkRSVkJsTVZsMVExZC1mZyZjcmVhdGVfdGltZT0xNTk5ODk0MTg4Jm5vbmNlPTAuMTAwMjg3ODg1NjUxMzQwNSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjAyNDg2MTg3JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9']
-  var tokenIndex = parseInt(roomList.indexOf(id));
-  var token = tokenList[tokenIndex];
-  return token;
-}
 
-
-
-var roomList = ['2_MX40NjgwMzA1NH5-MTU5OTg5Mzc5NjA2NX5iTXFTU3Y4Uy90VGY3eVRDRVBlMVl1Q1d-fg'];
-var room = roomList[Math.floor(Math.random()*roomList.length)];
-var sessionId = room;
-var token = getToken(sessionId);
-
-
-document.getElementById('baby').value=room;
 function startRoom() { 
   socket.emit('join_room', room);
-  initializeSession();
+  socket.on("stopOppTimer", (room) => {
+    console.log('trying to stop timer')
+    socket.to(room).emit("stopOppTimer", (room));
+  });
   
   
 
@@ -2016,7 +2004,7 @@ function initializeSession() {
 function sendMessage() { 
   var msg = document.getElementById('msg').value;
   
-  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>"
+  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>" + "<p class='name'>John Crasinki</p>"
   socket.emit("incomingMessage", ({room, msg}));
 
   

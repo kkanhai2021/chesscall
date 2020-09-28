@@ -43,7 +43,8 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-
+var OpenTok = require('opentok'),
+    opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 
 
 io.on('connection', (socket) => {
@@ -52,9 +53,8 @@ io.on('connection', (socket) => {
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
     
-    console.log("socket joined: ", room);
-    socket.emit('your_room', room);
-    socket.join(room);
+    
+    socket.join(roomnum);
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
