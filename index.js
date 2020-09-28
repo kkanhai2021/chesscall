@@ -55,14 +55,16 @@ io.on('connection', (socket) => {
   socket.on("join_room", room => {
     opentok.createSession(function(err, session) {
       if (err) return console.log(err);
-    
+      
       token = session.generateToken();
-      console.log(token)
-      db.save('session', session.sessionId, done);
+      var roomnum = session.sessionId
+      socket.join(roomnum);
+      socket.to(room).emit("credentials", {token, roomnum});
+      console.log(roomnum)
       
     });
     
-    //socket.join(roomnum);
+    
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
