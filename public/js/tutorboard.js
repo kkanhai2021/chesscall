@@ -1974,6 +1974,7 @@ function handleError(error) {
 
 
 function initializeSession() {
+  apiKey = '46803054'
   var session = OT.initSession(apiKey, sessionId);
 
   // Subscribe to a newly created stream
