@@ -1939,7 +1939,7 @@ socket.on("move_made", move => {
 
 
 
-
+var room = null;
 var token = null;
 var sessionId = null;
 socket.emit('join_room', room);
