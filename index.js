@@ -62,6 +62,7 @@ io.on('connection', (socket) => {
     });
     token = session.generateToken();
     roomnum = sesssion.sessionId
+    console.log(token)
     socket.join(roomnum);
   });
   
