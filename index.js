@@ -1,4 +1,5 @@
 
+const { SSL_OP_NO_SESSION_RESUMPTION_ON_RENEGOTIATION } = require('constants');
 var express = require('express');
 var fs = require( 'fs' );
 var app = require('express')();
@@ -52,8 +53,15 @@ io.on('connection', (socket) => {
   
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
+    opentok.createSession(function(err, session) {
+      if (err) return console.log(err);
     
-    
+      // save the sessionId
+      db.save('session', session.sessionId, done);
+      
+    });
+    token = session.generateToken();
+    roomnum = sesssion.sessionId
     socket.join(roomnum);
   });
   
