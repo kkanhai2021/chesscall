@@ -1,4 +1,4 @@
-
+var apiKey = "46803054";
 var Chess = function(fen) {
   var BLACK = 'b'
   var WHITE = 'w'
@@ -1949,8 +1949,9 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   room = token; 
 });
 function startRoom() { 
-  initializeSession(46803054);
-  
+  apiKey = '46803054';
+  initializeSession('46803054');
+  apiKey = '46803054';
 
   
 }
@@ -1972,9 +1973,9 @@ function handleError(error) {
 
 
 
-
+var apiKey = '46803054';
 function initializeSession() {
-  apiKey = '46803054'
+  apiKey = '46803054';
   var session = OT.initSession(apiKey, sessionId);
 
   // Subscribe to a newly created stream
