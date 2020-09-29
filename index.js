@@ -44,6 +44,9 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
+function getvalues(x,y) { 
+ 
+}
 
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
@@ -62,16 +65,13 @@ io.on('connection', (socket) => {
       tokennum = token
       roomnum = sessionId
       io.emit("credentials", {tokennum, roomnum});
-      console.log(tokennum,roomnum)
+      
   }
 });
 
     
   });
-  socket.on("credentials", ({tokennum, roomnum}) => {
-    console.log("the answer is: ", tokennum, roomnum);
-   
-  });
+  
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
   socket.on("move_made", ({room, move}) => {
     
