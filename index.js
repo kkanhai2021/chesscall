@@ -52,7 +52,6 @@ function createNewRoom() {
   opentok.createSession(function(err, session) {
     token = session.generateToken();
     roomnum = session.sessionId;
-    socket.join(session.sessionId);
     tokennum = token
     console.log("this is the roomnum:", roomnum)
   });
