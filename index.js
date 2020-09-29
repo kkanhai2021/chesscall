@@ -57,10 +57,10 @@ io.on('connection', (socket) => {
       if (err) return console.log(err);
       token = session.generateToken();
       roomnum = session.sessionId;
-      socket.join(roomnum);
+      socket.join(session.sessionId);
       tokennum = token
       console.log("this is the roomnum:", roomnum)
-      
+      socket.to(session.sessionId.emit("credentials", ({tokennum, roomnum}));
     });
     
     
