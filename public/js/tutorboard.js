@@ -1,7 +1,7 @@
 var apiKey = "46803054";
 var room = null;
 var token = null;
-var sessionId = null;
+var sessionId = "2_MX40NjgwMzA1NH5-MTYwMTM0MDE1MTU1Mn5vcnV1TmJvYXBxNWZYZHJaazRnbkxxeWp-UH4";
 var Chess = function(fen) {
   var BLACK = 'b'
   var WHITE = 'w'
