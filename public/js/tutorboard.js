@@ -1943,12 +1943,14 @@ socket.on("move_made", move => {
 
 socket.emit('join_room', room);
 socket.on("credentials", ({tokennum, roomnum}) => {
+  alert(roomnum)
   token = tokennum;
   sessionId = roomnum;
+  ale
   room = token; 
 });
 function startRoom() { 
-  alert(sessionId)
+ 
   var apiKey = '46803054';
   initializeSession();
  
