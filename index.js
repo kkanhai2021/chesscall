@@ -53,7 +53,7 @@ io.on('connection', (socket) => {
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-    opentok.createSession(function(err, session) {
+    roomnum = opentok.createSession(function(err, session) {
       if (err) return console.log(err);
       token = session.generateToken();
       roomnum = session.sessionId;
@@ -61,9 +61,11 @@ io.on('connection', (socket) => {
       tokennum = token
       console.log("this is the roomnum:", roomnum)
       socket.to(session.sessionId).emit("credentials", {tokennum,roomnum});
+      return session.sessionId;
+
     });
     
-    
+    console.log("nigga: ", roomnum)
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
