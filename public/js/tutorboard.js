@@ -1942,9 +1942,9 @@ socket.on("move_made", move => {
 
 
 socket.emit('join_room', room);
-socket.on("cock", ({tokennum, roomnum}) => {
+socket.on("credentials", ({tokennum, roomnum}) => {
   if(joinedornot == false) { 
-    tokenvar = tokennum;
+    token = tokennum;
     sessionId = roomnum;
    
   }
