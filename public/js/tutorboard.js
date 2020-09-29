@@ -1940,24 +1940,18 @@ socket.on("move_made", move => {
 
 });
 
-joinedornot = false
+
 socket.emit('join_room', room);
-socket.on("credentials", ({tokennum, roomnum}) => {
+socket.on("credentials", ({token, sessionId}) => {
   if(joinedornot == false) { 
     token = tokennum;
     sessionId = roomnum;
-    room = token; 
-    joinedornot = true;
+    
   }
   
 });
 function startRoom() { 
-  alert(sessionId);
-  var apiKey = '46803054';
   initializeSession();
- 
-
-  
 }
 
 function copyCode() {

@@ -44,27 +44,32 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-var tokennum = null; 
-var roomnum = null;
+
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 var sessionId;
-mega = opentok.createSession({mediaMode:"routed"}, function(error, session) {
-  if (error) {
-    console.log("Error creating session:", error)
-  } else {
-    sessionId= session.sessionId;
-    return session;
-  }
-});
-
+var token;
 console.log("outisde: ", mega);
 io.on('connection', (socket) => {
   console.log('a user connected');
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-   
+    var sessionId;
+
+    opentok.createSession({mediaMode:"routed"}, function(error, session) {
+    if (error) {
+      console.log("Error creating session:", error)
+    } else {
+      sessionId= session.sessionId;
+      roomnum = session.sessionId;
+      socket.join(session.sessionId)
+      tokennum = opentok.generateToken(sessionId);
+      socket.to(session.sessionId).emit("credentials", {tokennum, roomnum});
+    
+  }
+});
+
     
   });
   
@@ -121,4 +126,3 @@ https.listen(3000, () => {
 	console.log('HTTPS Server running on port 3000');
 });
 */
-console.log("outisde: ", mega);
