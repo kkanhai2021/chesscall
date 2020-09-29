@@ -43,28 +43,27 @@ app.get('/tutorboard.html', (req, res) => {
 app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
-
+var sessionnum = "mek";
 var tokennum = null; 
 var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
-
+function createNewRoom() { 
+  opentok.createSession(function(err, session) {
+    token = session.generateToken();
+    roomnum = session.sessionId;
+    socket.join(session.sessionId);
+    tokennum = token
+    console.log("this is the roomnum:", roomnum)
+  });
+}
 
 io.on('connection', (socket) => {
   console.log('a user connected');
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-    opentok.createSession(function(err, session) {
-      if (err) return console.log(err);
-      token = session.generateToken();
-      roomnum = session.sessionId;
-      socket.join(session.sessionId);
-      tokennum = token
-      console.log("this is the roomnum:", roomnum)
-      
-    });
-    
+    createNewRoom();
     console.log("outside", roomnum)
   });
   
