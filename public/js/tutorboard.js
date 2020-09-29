@@ -1948,10 +1948,11 @@ socket.on("credentials", ({tokennum, roomnum}) => {
     sessionId = roomnum;
    
   }
-  initializeSession();
 });
 
-  
+function startRoom() { 
+  initializeSession();
+}  
 
 
 function copyCode() {
