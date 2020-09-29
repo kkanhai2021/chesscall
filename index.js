@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-    createNewRoom();
+   
     
   });
   
