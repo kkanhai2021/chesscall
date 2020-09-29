@@ -53,18 +53,19 @@ io.on('connection', (socket) => {
   
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
+    var roomnum = null;
+    var tokennum = null;
     opentok.createSession(function(err, session) {
       if (err) return console.log(err);
-      
       token = session.generateToken();
-      var roomnum = session.sessionId
-      
+      roomnum = session.sessionId
+      socket.join(roomnum);
       tokennum = token
-      console.log(tokennum, roomnum)
-      socket.emit("credentials", {tokennum, roomnum});
+     
       
     });
-    
+    socket.join(roomnum);
+    socket.to(roomnum).emit("credentials", {tokennum, roomnum});
     
   });
   

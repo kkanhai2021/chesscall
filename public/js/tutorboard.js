@@ -1943,21 +1943,7 @@ socket.on("move_made", move => {
 
 socket.emit('join_room', room);
 socket.on("credentials", ({tokennum, roomnum}) => {
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
-  console.log('this code ran')
+  
   token = tokennum;
   sessionId = roomnum;
   room = token; 
