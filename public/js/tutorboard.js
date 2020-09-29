@@ -1952,7 +1952,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
 });
 
   
-}
+
 
 function copyCode() {
   var copyText = document.getElementById("roomName");
