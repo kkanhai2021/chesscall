@@ -45,7 +45,7 @@ app.get('/studentboard.html', (req, res) => {
 });
 
 function getvalues(x,y) { 
- console.log(x, y);
+ console.log("I recevied some values gg:", x, y);
 }
 
 var OpenTok = require('opentok'),
