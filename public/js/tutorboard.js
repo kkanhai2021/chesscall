@@ -1,6 +1,6 @@
 var apiKey = "46803054";
 var room = null;
-var token = null;
+var tokenvar = null;
 var sessionId = null;
 var Chess = function(fen) {
   var BLACK = 'b'
@@ -1942,9 +1942,9 @@ socket.on("move_made", move => {
 
 
 socket.emit('join_room', room);
-socket.on("credentials", ({token, sessionId}) => {
+socket.on("credentials", ({tokennum, roomnum}) => {
   if(joinedornot == false) { 
-    token = tokennum;
+    tokenvar = tokennum;
     sessionId = roomnum;
     
   }
@@ -1993,7 +1993,7 @@ function initializeSession() {
   }, handleError);
 
   // Connect to the session
-  session.connect(token, function(error) {
+  session.connect(tokenvar, function(error) {
     // If the connection is successful, initialize a publisher and publish to the session
     if (error) {
       handleError(error);
