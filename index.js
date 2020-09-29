@@ -57,7 +57,8 @@ opentok.createSession({mediaMode:"routed"}, function(error, session) {
     
   }
 });
-console.log("outisde: ", mega);
+
+console.log("outisde: ", snum);
 io.on('connection', (socket) => {
   console.log('a user connected');
 
