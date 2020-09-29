@@ -64,6 +64,7 @@ io.on('connection', (socket) => {
      
       
     });
+    console.log("this is the room number:", roomnum)
     socket.join(roomnum);
     socket.to(roomnum).emit("credentials", {tokennum, roomnum});
     
