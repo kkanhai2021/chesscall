@@ -49,16 +49,15 @@ var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 var sessionId;
+var sessionId;
 opentok.createSession({mediaMode:"routed"}, function(error, session) {
   if (error) {
     console.log("Error creating session:", error)
   } else {
-    
     sessionId = session.sessionId;
-    roomnum = sessionId;
+    console.log("Session ID: " + sessionId);
   }
 });
-console.log("your roomnum is:", roomnum)
 
 io.on('connection', (socket) => {
   console.log('a user connected');
