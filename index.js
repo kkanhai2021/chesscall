@@ -54,7 +54,7 @@ function createNewRoom() {
     token = session.generateToken();
     roomnum = session.sessionId;
     tokennum = token
-    return sessionId;
+    return session.sessionId;
   });
   console.log ("I got out: ", sessionnum);
 }
