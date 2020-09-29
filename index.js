@@ -45,7 +45,7 @@ app.get('/studentboard.html', (req, res) => {
 });
 
 function getvalues(x,y) { 
- 
+ console.log(x, y);
 }
 
 var OpenTok = require('opentok'),
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
       token = opentok.generateToken(sessionId);
       tokennum = token
       roomnum = sessionId
-      io.emit("credentials", {tokennum, roomnum});
+      getvalues(roomnum,sessionId);
       
   }
 });
