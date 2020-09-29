@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
       tokennum = token
       roomnum = sessionId
       io.emit("credentials", {tokennum, roomnum});
-      console.log(tokennum,roomnum )
+      console.log(tokennum,roomnum)
   }
 });
 
@@ -110,7 +110,10 @@ io.on('connection', (socket) => {
 
 });
 
-
+socket.on("credentials", ({tokennum, roomnum}) => {
+  console.log("the answer is: ", tokennum, roomnum);
+ 
+});
 
 /*
 // const httpServer = http.createServer(app);
