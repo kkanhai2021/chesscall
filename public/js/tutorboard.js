@@ -1,6 +1,6 @@
 var apiKey = "46803054";
 var room = null;
-var tokenvar = null;
+var token = null;
 var sessionId = null;
 var Chess = function(fen) {
   var BLACK = 'b'
@@ -1882,7 +1882,7 @@ if (typeof define !== 'undefined')
 
 
 
-var apiKey = "46803054";
+
 
 // sets the config of the board
 var config = {
@@ -1946,8 +1946,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   if(joinedornot == false) { 
     tokenvar = tokennum;
     sessionId = roomnum;
-    alert(tokennum)
-    alert(roomnum)
+   
   }
   
 });
@@ -1972,7 +1971,7 @@ function handleError(error) {
 
 
 
-var apiKey = '46803054';
+
 function initializeSession() {
   apiKey = '46803054';
   var session = OT.initSession(apiKey, sessionId);
@@ -1994,7 +1993,7 @@ function initializeSession() {
   }, handleError);
 
   // Connect to the session
-  session.connect(tokenvar, function(error) {
+  session.connect(token, function(error) {
     // If the connection is successful, initialize a publisher and publish to the session
     if (error) {
       handleError(error);

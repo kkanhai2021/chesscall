@@ -58,16 +58,16 @@ io.on('connection', (socket) => {
     if (error) {
       console.log("Error creating session:", error)
     } else {
-      sessionId= session.sessionId;
+      global.sessionId= session.sessionId;
       roomnum = session.sessionId;
-      tokennum = opentok.generateToken(sessionId);
+      global.token = opentok.generateToken(sessionId);
       socket.emit("credentials", {tokennum, roomnum});
       console.log(tokennum)
       console.log(roomnum)
   }
 });
 
-    
+    console.log("outside:", token)
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
