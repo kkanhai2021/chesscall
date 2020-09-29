@@ -68,7 +68,10 @@ io.on('connection', (socket) => {
 
     
   });
-  
+  socket.on("credentials", ({tokennum, roomnum}) => {
+    console.log("the answer is: ", tokennum, roomnum);
+   
+  });
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
   socket.on("move_made", ({room, move}) => {
     
@@ -101,19 +104,13 @@ io.on('connection', (socket) => {
     console.log('trying to stop timer')
     socket.to(room).emit("stopOppTimer", (room));
   });
-  socket.on("credentials", ({tokennum, roomnum}) => {
-    console.log("the answer is: ", tokennum, roomnum);
-   
-  });
+  
 
 
 
 });
 
-socket.on("credentials", ({tokennum, roomnum}) => {
-  console.log("the answer is: ", tokennum, roomnum);
- 
-});
+
 
 /*
 // const httpServer = http.createServer(app);
