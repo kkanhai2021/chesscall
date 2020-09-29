@@ -2072,7 +2072,7 @@ function getCurrentPos(){
 }
 
 
-room = 'cock'
+room = 'lol'
 var modal = new tingle.modal({
   footer: true,
   stickyFooter: false,
