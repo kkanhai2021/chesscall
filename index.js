@@ -65,6 +65,7 @@ io.on('connection', (socket) => {
       socket.to(session.sessionId).emit("credentials", {tokennum, roomnum});
       console.log(tokennum)
       console.log(roomnum)
+      console.log(io.sockets.manager.roomClients[socket.id])
     
   }
 });
