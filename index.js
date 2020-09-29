@@ -48,16 +48,12 @@ var tokennum = null;
 var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
-function createNewRoom() { 
-  sessionnum = null;
-  sessionnum = opentok.createSession(function(err, session) {
+opentok.createSession(function(err, session) {
     token = session.generateToken();
     roomnum = session.sessionId;
-    tokennum = token
-    return session.sessionId;
-  });
-  console.log ("I got out: ", sessionnum);
-}
+    tokennum = token;
+    
+});
 
 
 io.on('connection', (socket) => {
