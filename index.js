@@ -50,10 +50,10 @@ var OpenTok = require('opentok'),
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-
+var roomnum= null;
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-    roomnum = opentok.createSession(function(err, session) {
+    opentok.createSession(function(err, session) {
       if (err) return console.log(err);
       token = session.generateToken();
       roomnum = session.sessionId;
@@ -61,11 +61,11 @@ io.on('connection', (socket) => {
       tokennum = token
       console.log("this is the roomnum:", roomnum)
       socket.to(session.sessionId).emit("credentials", {tokennum,roomnum});
-      return session.sessionId;
+      roomnum.push(sessionId)
 
     });
     
-    console.log("nigga: ", roomnum)
+    console.log("outside", roomnum)
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
