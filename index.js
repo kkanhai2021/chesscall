@@ -63,6 +63,8 @@ io.on('connection', (socket) => {
       socket.join(session.sessionId)
       tokennum = opentok.generateToken(sessionId);
       socket.to(session.sessionId).emit("credentials", {tokennum, roomnum});
+      console.log(tokennum)
+      console.log(roomnum)
     
   }
 });
