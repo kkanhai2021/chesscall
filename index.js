@@ -58,7 +58,7 @@ io.on('connection', (socket) => {
       tokennum = y;
       roomnum = x;
     
-      socket.to(x).emit("credentials", {tokenum, roomnum})
+      socket.to(x).emit("credentials", {tokennum, roomnum})
 
     }
     
