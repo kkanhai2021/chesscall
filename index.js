@@ -54,7 +54,7 @@ opentok.createSession(function(err, session) {
     tokennum = token;
     
 });
-
+console.log(roomnum)
 
 io.on('connection', (socket) => {
   console.log('a user connected');
