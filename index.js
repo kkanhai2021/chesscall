@@ -49,14 +49,11 @@ var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 var sessionId;
 var token;
-console.log("outisde: ", mega);
 io.on('connection', (socket) => {
   console.log('a user connected');
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
-    var sessionId;
-
     opentok.createSession({mediaMode:"routed"}, function(error, session) {
     if (error) {
       console.log("Error creating session:", error)
