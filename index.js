@@ -54,6 +54,7 @@ var mega = opentok.createSession({mediaMode:"routed"}, function(error, session) 
     console.log("Error creating session:", error)
   } else {
     sessionId = session.sessionId;
+    console.log('this ran');
     return sessionId;
   }
 });
