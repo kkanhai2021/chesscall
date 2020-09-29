@@ -44,13 +44,15 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
+var tokennum = null; 
+var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-var roomnum= [];
+
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
     opentok.createSession(function(err, session) {
@@ -60,9 +62,7 @@ var roomnum= [];
       socket.join(session.sessionId);
       tokennum = token
       console.log("this is the roomnum:", roomnum)
-      socket.emit("credentials", {tokennum,roomnum});
       
-
     });
     
     console.log("outside", roomnum)
