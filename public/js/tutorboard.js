@@ -1,7 +1,7 @@
 var apiKey = "46803054";
 var room = null;
 var token = null;
-var sessionId = "2_MX40NjgwMzA1NH5-MTYwMTM0MDE1MTU1Mn5vcnV1TmJvYXBxNWZYZHJaazRnbkxxeWp-UH4";
+var sessionId = null;
 var Chess = function(fen) {
   var BLACK = 'b'
   var WHITE = 'w'
@@ -1946,11 +1946,10 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   alert(roomnum)
   token = tokennum;
   sessionId = roomnum;
-  ale
   room = token; 
 });
 function startRoom() { 
- 
+  alert(sessionId);
   var apiKey = '46803054';
   initializeSession();
  
