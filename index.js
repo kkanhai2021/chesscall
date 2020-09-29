@@ -44,9 +44,6 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-function getvalues(x,y) { 
- console.log("I recevied some values gg:", x, y);
-}
 
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
@@ -56,6 +53,15 @@ io.on('connection', (socket) => {
 
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
+    function getvalues(x,y) { 
+      socket.join(x)
+      tokennum = y;
+      roomnum = x;
+    
+      socket.to(x).emit("credentials", {tokenum, roomnum})
+
+    }
+    
     opentok.createSession({mediaMode:"routed"}, function(error, session) {
     if (error) {
       console.log("Error creating session:", error)
