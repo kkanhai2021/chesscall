@@ -60,13 +60,10 @@ io.on('connection', (socket) => {
     } else {
       sessionId= session.sessionId;
       roomnum = session.sessionId;
-      socket.join(session.sessionId)
       tokennum = opentok.generateToken(sessionId);
-      socket.to(session.sessionId).emit("credentials", {tokennum, roomnum});
+      socket.emit("credentials", {tokennum, roomnum});
       console.log(tokennum)
       console.log(roomnum)
-      console.log(io.sockets.manager.roomClients[socket.id])
-    
   }
 });
 
