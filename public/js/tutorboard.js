@@ -1946,7 +1946,8 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   if(joinedornot == false) { 
     tokenvar = tokennum;
     sessionId = roomnum;
-    
+    alert(tokennum)
+    alert(roomnum)
   }
   
 });
