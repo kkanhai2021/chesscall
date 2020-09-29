@@ -47,8 +47,7 @@ app.get('/studentboard.html', (req, res) => {
 
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
-var sessionId;
-var token;
+
 io.on('connection', (socket) => {
   console.log('a user connected');
 
@@ -58,12 +57,12 @@ io.on('connection', (socket) => {
     if (error) {
       console.log("Error creating session:", error)
     } else {
-      global.sessionId= session.sessionId;
-      roomnum = session.sessionId;
-      global.token = opentok.generateToken(sessionId);
-      socket.emit("credentials", {tokennum, roomnum});
-      console.log(tokennum)
-      console.log(roomnum)
+      sessionId= session.sessionId;
+      token = opentok.generateToken(sessionId);
+      tokennum = token
+      roomnum = sessionId
+      io.emit("credentials", {tokennum, roomnum});
+      
   }
 });
 
@@ -102,7 +101,10 @@ io.on('connection', (socket) => {
     console.log('trying to stop timer')
     socket.to(room).emit("stopOppTimer", (room));
   });
-
+  socket.on("credentials", ({tokennum, roomnum}) => {
+    console.log("the answer is", tokennum, roomnum);
+   
+  });
 
 
 
