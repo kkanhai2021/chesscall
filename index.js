@@ -62,7 +62,7 @@ io.on('connection', (socket) => {
       tokennum = token
       roomnum = sessionId
       io.emit("credentials", {tokennum, roomnum});
-      
+      console.log(tokennum,roomnum )
   }
 });
 
