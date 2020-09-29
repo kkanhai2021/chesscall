@@ -43,19 +43,22 @@ app.get('/tutorboard.html', (req, res) => {
 app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
-var sessionnum = "mek";
+
 var tokennum = null; 
 var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 function createNewRoom() { 
-  opentok.createSession(function(err, session) {
+  sessionnum = null;
+  sessionnum = opentok.createSession(function(err, session) {
     token = session.generateToken();
     roomnum = session.sessionId;
     tokennum = token
-    console.log("this is the roomnum:", roomnum)
+    return sessionId;
   });
+  console.log ("I got out: ", sessionnum);
 }
+
 
 io.on('connection', (socket) => {
   console.log('a user connected');
@@ -63,9 +66,9 @@ io.on('connection', (socket) => {
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
     createNewRoom();
-    console.log("outside", roomnum)
+    
   });
-  console.log("outside", roomnum)
+  
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
   socket.on("move_made", ({room, move}) => {
     
