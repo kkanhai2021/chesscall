@@ -65,7 +65,7 @@ io.on('connection', (socket) => {
     createNewRoom();
     console.log("outside", roomnum)
   });
-  
+  console.log("outside", roomnum)
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
   socket.on("move_made", ({room, move}) => {
     
