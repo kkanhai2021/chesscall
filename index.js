@@ -47,7 +47,6 @@ app.get('/studentboard.html', (req, res) => {
 var tokennum = null; 
 var roomnum = null;
 var OpenTok = require('opentok'),
-var roomnum = null;
 var opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
 var sessionId;
 opentok.createSession({mediaMode:"routed"}, function(error, session) {
