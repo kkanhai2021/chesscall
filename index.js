@@ -48,17 +48,17 @@ var tokennum = null;
 var roomnum = null;
 var OpenTok = require('opentok'),
     opentok = new OpenTok('46803054', '40eaeba7497ba41d1abf67ddceeac12a9bb52b79');
-var snum;
-opentok.createSession({mediaMode:"routed"}, function(error, session) {
+var sessionId;
+mega = opentok.createSession({mediaMode:"routed"}, function(error, session) {
   if (error) {
     console.log("Error creating session:", error)
   } else {
-    snum = session.sessionId;
-    
+    sessionId= session.sessionId;
+    return session;
   }
 });
 
-console.log("outisde: ", snum);
+console.log("outisde: ", mega);
 io.on('connection', (socket) => {
   console.log('a user connected');
 
@@ -121,3 +121,4 @@ https.listen(3000, () => {
 	console.log('HTTPS Server running on port 3000');
 });
 */
+console.log("outisde: ", mega);
