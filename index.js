@@ -44,7 +44,7 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-function getvalues(x,y) { 
+function getsessionID(x,y) { 
  console.log("I recevied some values gg:", x, y);
 }
 
@@ -64,7 +64,7 @@ io.on('connection', (socket) => {
       token = opentok.generateToken(sessionId);
       tokennum = token
       roomnum = sessionId
-      getvalues(roomnum,sessionId);
+      getvalues(roomnum,tokennum);
       
   }
 });
