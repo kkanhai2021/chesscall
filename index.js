@@ -102,7 +102,7 @@ io.on('connection', (socket) => {
     socket.to(room).emit("stopOppTimer", (room));
   });
   socket.on("credentials", ({tokennum, roomnum}) => {
-    console.log("the answer is", tokennum, roomnum);
+    console.log("the answer is: ", tokennum, roomnum);
    
   });
 
