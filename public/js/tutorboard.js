@@ -1957,7 +1957,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
   console.log('this code ran')
   console.log('this code ran')
   console.log('this code ran')
-  console.log('this code ran')a
+  console.log('this code ran')
   token = tokennum;
   sessionId = roomnum;
   room = token; 
