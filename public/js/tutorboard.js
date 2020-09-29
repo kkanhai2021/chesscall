@@ -1940,13 +1940,16 @@ socket.on("move_made", move => {
 
 });
 
-
+joinedornot = false
 socket.emit('join_room', room);
 socket.on("credentials", ({tokennum, roomnum}) => {
+  if(joinedornot == false) { 
+    token = tokennum;
+    sessionId = roomnum;
+    room = token; 
+    joinedornot = true;
+  }
   
-  token = tokennum;
-  sessionId = roomnum;
-  room = token; 
 });
 function startRoom() { 
   alert(sessionId);
