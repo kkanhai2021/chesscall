@@ -61,7 +61,7 @@ var roomnum= null;
       tokennum = token
       console.log("this is the roomnum:", roomnum)
       socket.to(session.sessionId).emit("credentials", {tokennum,roomnum});
-      roomnum.push(sessionId)
+      roomnum.push(session.sessionId)
 
     });
     
