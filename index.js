@@ -50,13 +50,15 @@ var OpenTok = require('opentok'),
 
 io.on('connection', (socket) => {
   console.log('a user connected');
-  
+
+var roomnum = null;
+var tokennum = null;
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
     opentok.createSession(function(err, session) {
       if (err) return console.log(err);
       token = session.generateToken();
-      roomnum = session.sessionId
+      roomnum = session.sessionId;
       socket.join(roomnum);
       tokennum = token
      
