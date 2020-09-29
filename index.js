@@ -44,7 +44,7 @@ app.get('/studentboard.html', (req, res) => {
   res.sendFile(__dirname + '/public/studentboard.html');
 });
 
-function getsessionID(x,y) { 
+function getvalues(x,y) { 
  console.log("I recevied some values gg:", x, y);
 }
 
