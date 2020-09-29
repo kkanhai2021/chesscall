@@ -66,7 +66,7 @@ io.on('connection', (socket) => {
   }
 });
 
-    console.log("outside:", token)
+    
   });
   
   //whenever a client makes a move, it emits that move to all clients in the room, except the sender
