@@ -1945,6 +1945,14 @@ socket.emit('join_room', room);
 
 socket.on("credentials", ({tokennum, roomnum}) => {
     console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    console.log('this code executed')
+    
     token = tokennum;
     sessionId = roomnum;
     console.log(apiKey, token, sessionId);
