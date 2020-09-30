@@ -1920,7 +1920,7 @@ var config = {
 var board = Chessboard('myBoard', config)
 
 
-var roomList = ['2_MX40NjgwMzA1NH5-MTU5OTg5Mzc5NjA2NX5iTXFTU3Y4Uy90VGY3eVRDRVBlMVl1Q1d-fg'];
+
 var sessionId = '';
 var token = '';
 function getRoom() { 
@@ -1928,24 +1928,25 @@ function getRoom() {
   var room = document.getElementById("codeGoesHere").value;
   sessionId = room;
   token = getToken(sessionId);
-  return room;
   
 }
 
 function getToken(id) { 
-  var tokenList = ["T1==cGFydG5lcl9pZD00NjgwMzA1NCZzaWc9MTZkZDk1YWQyOWY4NmJlM2VlNjBiNmRlZjk2YTMyOTg0ZTY0NWMwNzpzZXNzaW9uX2lkPTJfTVg0ME5qZ3dNekExTkg1LU1UVTVPVGc1TXpjNU5qQTJOWDVpVFhGVFUzWTRVeTkwVkdZM2VWUkRSVkJsTVZsMVExZC1mZyZjcmVhdGVfdGltZT0xNTk5ODk0MTg4Jm5vbmNlPTAuMTAwMjg3ODg1NjUxMzQwNSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNjAyNDg2MTg3JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9"]
-  var tokenIndex = parseInt(roomList.indexOf(id));
-  var token = tokenList[tokenIndex];
+  socket.emit("get_token", room);
   
-  return token;
 }
+var token= null;
+socket.on("credentials", tokenum => {
+  token = tokenum
+  
+  
+});
 clicked = false; 
 
 function joinRoom() { 
   room = getRoom();
   console.log(room);
   socket.emit('join_room', room);
-  
   initializeSession();
   
 }

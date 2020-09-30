@@ -114,8 +114,16 @@ io.on('connection', (socket) => {
     console.log('trying to stop timer')
     socket.to(room).emit("stopOppTimer", (room));
   });
+  socket.on("join_room", (room) => {
+    socket.join(x,function () {
+      var token = opentok.generateToken(sessionId);
+      console.log("A student Joined: ", socket.rooms);
+      io.in(x).emit('credentials', {tokennum});
+    });
+    
+    
+  });
   
-
 
 
 });
