@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
       roomnum = x;
       console.log(x);
       console.log(y);
-      socket.(x).emit("credentials", {tokennum, roomnum});
+      socket.to(x).emit("credentials", {tokennum, roomnum});
     }
     
     opentok.createSession({mediaMode:"routed"}, function(error, session) {
