@@ -1926,11 +1926,11 @@ var token = '';
 function getRoom() { 
   var room = document.getElementById("codeGoesHere").value;
   sessionId = room;
-  token = getToken(sessionId);
+  getToken();
   
 }
 
-function getToken(id) { 
+function getToken() { 
   socket.emit("get_token", room);
   
 }
