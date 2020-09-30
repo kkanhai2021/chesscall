@@ -1,3 +1,6 @@
+var room = null;
+
+
 /*
  * Copyright (c) 2020, Jeff Hlywa (jhlywa@gmail.com)
  * All rights reserved.
@@ -1939,7 +1942,7 @@ socket.on("studentcredentials", tokennum => {
 });
 
 function joinRoom() { 
-  var room = document.getElementById("codeGoesHere").value;
+  room = document.getElementById("codeGoesHere").value;
   sessionId = room;
   socket.emit('student_join', room);
 }
@@ -2048,7 +2051,7 @@ modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='wid
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
     joinRoom();
-    console.log(room);
+    
     modal.close();
 });
 
