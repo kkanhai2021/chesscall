@@ -1949,7 +1949,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
    
   }
 });
-
+console.log(apiKey, token, sessionId)
 function startRoom() { 
   initializeSession();
 }  
