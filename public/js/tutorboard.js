@@ -1942,16 +1942,20 @@ socket.on("move_made", move => {
 
 
 socket.emit('join_room', room);
+
 socket.on("credentials", ({tokennum, roomnum}) => {
   if(joinedornot == false) { 
     token = tokennum;
     sessionId = roomnum;
+    console.log(apiKey, token, sessionId);
+    
    
   }
 });
-console.log(apiKey, token, sessionId)
+
+
 function startRoom() { 
-  initializeSession();
+  
 }  
 
 
