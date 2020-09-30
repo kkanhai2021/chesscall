@@ -1950,7 +1950,7 @@ socket.on("studentcredentials", tokennum => {
 function joinRoom() { 
   room = document.getElementById("codeGoesHere").value;
   sessionId = room;
-  session = OT.initSession("46803054", sessionID);
+  session = OT.initSession("46803054", sessionId);
   socket.emit('student_join', room);
 }
 
