@@ -1954,6 +1954,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
 
 
 function startRoom() { 
+  alert ("Attempting to start room...")
   initializeSession();
 }  
 
