@@ -1,133 +1,31 @@
-<!doctype html>
-<html lang="en">
-<div id='uniqueid'>
-  <head>
-    <title>ChessCall</title>
-    <meta charset="utf-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-    <link rel="stylesheet" href="tingle.js/dist/tingle.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <link rel="stylesheet" href="css/aos.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="chessboardjs-1/css/chessboard-1.0.0.min.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="chessboardjs-1/js/chessboard-1.0.0.min.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/groupboard.css">
-  
-	<link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@500&display=swap" rel="stylesheet">
-  
- 
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner" >
 
-      <div class="container">
-        <div class="row align-items-center">
-          
-          <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Chesscall<span class="text-primary">.</span> </a></h1>
-          </div>
+<!DOCTYPE html>
+<html>
 
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
+<head>
+    <title> OpenTok Getting Started </title>
+    <link href="css/app.css" rel="stylesheet" type="text/css">
 
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href='index.html' class="nav-link">Home</a></li>
-                
-                
-                
-                <li><a href='aboutus.html' sclass="nav-link">About Us</a></li>
-              </ul>
-            </nav>
-          </div>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
 
+    <!-- Polyfill for fetch API so that we can fetch the sessionId and token in IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" charset="utf-8"></script>
+</head>
 
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+<body>
 
-        </div>
-      </div>
-      
-    </header>
-
-    <div id="overlayer"></div>
-    <div class="loader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-   
- 
-    
-      
-    <div class='gghh'>
-
-        
+    <div id="videos">
         <div id="subscriber"></div>
-            
-       <div class='board' id="mek">  <div class="teacherboard" id="myBoard"></div> <div class="teacherboard" id="board2"></div>             </div>
-        
-       <div class="chatSection" id='chatSection'>
-        <div class='prettyzin'><input type='text' id='msg' class='chatBox' placeholder=" Enter a message"><button class="send" onclick="sendMessage();">Send </button></div>
-      </div>
-        
-    
         <div id="publisher"></div>
-          
-     
-
-       
-      
-      
-      <input type=text class ='hide' id='baby'>
-
-
-    <script src="https://chesscall.com/socket.io/socket.io.js"></script>
-    <script>
-      const socket = io('https://chesscall.com');
-    </script>
-    <div class='displayIssues'><button class='help' onclick="helpModal.open();">Help</button></div>
-    
-    <div class='positioner'>
-      <div class='oppTimer jewishSaver'> <p id='person' class='myTimer'>Coach</p> <p class='oppTimer' id='oppSeconds'>00</p> <p class='oppTimer'>:</p> <p class='oppTimer' id='oppMinutes'>00</p> </div>
-      <div class='myTimer jewishKiller'> <p id='person' class='myTimer'>You</p> <p class='myTimer' id='mySeconds'>00</p> <p class='myTimer'>:</p> <p class='myTimer' id='myMinutes'>00</p> </div>
     </div>
-     <!-- seperator --> 
-  
-  <script src="tingle.js/dist/tingle.min.js"></script>
-  <script src="js/groupboard.js"></script>
-  <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/jquery-ui.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.countdown.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.fancybox.min.js"></script>
-  <script src="js/jquery.sticky.js"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@7/dist/polyfill.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js" charset="utf-8"></script>
-  <script src="chess.js/chess.js"></script>
-  <script src="js/main.js"></script>
 
-  <script>
-		
-	</script>
-  </body>
+    <!-- Credit to Tim Holman for the Github corners http://tholman.com/github-corners/ -->
+    <a href="https://github.com/opentok/opentok-web-samples/tree/master/Basic%20Video%20Chat" class="github-corner" aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:gray; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);z-index:101;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
 </html>
