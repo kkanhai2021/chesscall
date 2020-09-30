@@ -116,7 +116,9 @@ io.on('connection', (socket) => {
   });
   socket.on("student_join", (room) => {
     socket.join(room,function () {
-      var tokennum = opentok.generateToken(room);
+      var tokenOptions = {};
+      tokenOptions.role = "subscriber";
+      var tokennum = opentok.generateToken(room, tokenOptions);
       console.log("A student Joined: ", socket.rooms);
       io.in(room).emit('studentcredentials', (tokennum));
     });
