@@ -1,5 +1,5 @@
 var room = null;
-
+var session = null;
 
 /*
  * Copyright (c) 2020, Jeff Hlywa (jhlywa@gmail.com)
@@ -1937,13 +1937,20 @@ socket.on("studentcredentials", tokennum => {
   console.log("I received:", tokennum);
   token = tokennum;
   console.log("I made token: ", token);
-  initializeSession();
+  session.connect(token, function(error) {
+    if (error) {
+      console.log("Error connecting: ", error.name, error.message);
+    } else {
+      console.log("Connected to the session.");
+    }
+  });
   
 });
 
 function joinRoom() { 
   room = document.getElementById("codeGoesHere").value;
   sessionId = room;
+  session = OT.initSession("46803054", sessionID);
   socket.emit('student_join', room);
 }
 
@@ -1975,35 +1982,7 @@ function handleError(error) {
 // (optional) add server code here
 
 
-function initializeSession() {
-  var session = OT.initSession(apiKey, sessionId);
 
-  // Subscribe to a newly created stream
-  session.on('streamCreated', function(event) {
-    session.subscribe(event.stream, 'subscriber', {
-      insertMode: 'append',
-      width: '100%',
-      height: '100%'
-    }, handleError);
-  });
-
-  // Create a publisher
-  var publisher = OT.initPublisher('publisher', {
-    insertMode: 'append',
-    width: '100%',
-    height: '100%'
-  }, handleError);
-
-  // Connect to the session
-  session.connect(token, function(error) {
-    // If the connection is successful, initialize a publisher and publish to the session
-    if (error) {
-      handleError(error);
-    } else {
-      session.publish(publisher, handleError);
-    }
-  });
-}
 
 function sendMessage() { 
   var msg = document.getElementById('msg').value;
