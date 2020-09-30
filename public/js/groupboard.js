@@ -1924,7 +1924,6 @@ var board = Chessboard('myBoard', config)
 var sessionId = '';
 var token = '';
 function getRoom() { 
-  
   var room = document.getElementById("codeGoesHere").value;
   sessionId = room;
   token = getToken(sessionId);
@@ -1936,9 +1935,9 @@ function getToken(id) {
   
 }
 var token= null;
-socket.on("credentials", tokenum => {
-  token = tokenum
-  
+socket.on("student_join", tokenum => {
+  token = tokenum;
+  initializeSession();
   
 });
 clicked = false; 
@@ -1946,8 +1945,8 @@ clicked = false;
 function joinRoom() { 
   room = getRoom();
   console.log(room);
-  socket.emit('join_room', room);
-  initializeSession();
+  socket.emit('student_join', room);
+  
   
 }
 
