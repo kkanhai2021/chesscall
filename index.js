@@ -54,12 +54,12 @@ io.on('connection', (socket) => {
   // when a user creates a room, it subscribes their socket to that room
   socket.on("join_room", room => {
     function getvalues(x,y) { 
-      socket.join(x)
+      
       tokennum = y;
       roomnum = x;
       console.log(x);
       console.log(y);
-      socket.to(x).emit("credentials", {tokennum, roomnum});
+      socket.emit("credentials", {tokennum, roomnum});
     }
     
     opentok.createSession({mediaMode:"routed"}, function(error, session) {
