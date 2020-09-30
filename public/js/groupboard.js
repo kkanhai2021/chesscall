@@ -1943,7 +1943,7 @@ socket.on("student_join", tokenum => {
 clicked = false; 
 
 function joinRoom() { 
-  room = getRoom();
+  getRoom();
   console.log(room);
   socket.emit('student_join', room);
   
