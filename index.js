@@ -60,6 +60,7 @@ io.on('connection', (socket) => {
       console.log(x);
       console.log(y);
       socket.join(x, function () {
+        console.log("Socket now in rooms", socket.rooms);
         console.log(socket.id + " now in rooms ", socket.rooms);
         socket.to(x).emit("credentials", {tokennum, roomnum});
       });
