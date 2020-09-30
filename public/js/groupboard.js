@@ -1936,8 +1936,8 @@ function getToken(id) {
 }
 var token= null;
 socket.on("student_join", tokennum => {
-  alert(tokennum)
-  token = tokenum;
+  
+  token = tokennum;
   initializeSession();
   
 });
