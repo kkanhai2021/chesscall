@@ -1935,7 +1935,8 @@ function getToken(id) {
   
 }
 var token= null;
-socket.on("student_join", tokenum => {
+socket.on("student_join", tokennum => {
+  alert(tokennum)
   token = tokenum;
   initializeSession();
   
