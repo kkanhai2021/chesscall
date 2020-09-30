@@ -1944,15 +1944,6 @@ socket.on("move_made", move => {
 socket.emit('join_room', room);
 
 socket.on("credentials", ({tokennum, roomnum}) => {
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    console.log('this code executed')
-    
     token = tokennum;
     sessionId = roomnum;
     console.log(apiKey, token, sessionId);
@@ -1963,7 +1954,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
 
 
 function startRoom() { 
-  
+  initializeSession();
 }  
 
 
@@ -2006,7 +1997,7 @@ function initializeSession() {
   }, handleError);
 
   // Connect to the session
-  session.connect(token, function(error) {
+  session.connect(tokennum, function(error) {
     // If the connection is successful, initialize a publisher and publish to the session
     if (error) {
       handleError(error);
