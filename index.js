@@ -114,11 +114,11 @@ io.on('connection', (socket) => {
     console.log('trying to stop timer')
     socket.to(room).emit("stopOppTimer", (room));
   });
-  socket.on("join_room", (room) => {
+  socket.on("student_join", (room) => {
     socket.join(room,function () {
       var tokennum = opentok.generateToken(room);
       console.log("A student Joined: ", socket.rooms);
-      io.in(x).emit('credentials', {tokennum});
+      io.in(x).emit('studentcredentials', {tokennum});
     });
     
     
