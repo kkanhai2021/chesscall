@@ -1944,6 +1944,7 @@ socket.on("move_made", move => {
 socket.emit('join_room', room);
 
 socket.on("credentials", ({tokennum, roomnum}) => {
+    room = roomnum;
     token = tokennum;
     sessionId = roomnum;
     console.log(apiKey, token, sessionId);
