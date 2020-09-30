@@ -59,9 +59,9 @@ io.on('connection', (socket) => {
       roomnum = x;
       console.log(x);
       console.log(y);
-      socket.join(x,y, function () {
+      socket.join(x,function () {
         console.log("Socket now in rooms: ", socket.rooms);
-        io.in(x).emit('credentials', {tokenum, roomnum});
+        io.in(x).emit('credentials', {"this code executed", "this code executed"});
       });
       
     }
