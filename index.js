@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
       roomnum = x;
       console.log(x);
       console.log(y);
-      socket.join(roomnum,function () {
+      socket.join(x,function () {
         console.log("Socket now in rooms: ", socket.rooms);
         io.in(x).emit('credentials', {tokennum, roomnum});
       });
@@ -115,7 +115,7 @@ io.on('connection', (socket) => {
     socket.to(room).emit("stopOppTimer", (room));
   });
   socket.on("join_room", (room) => {
-    socket.join(x,function () {
+    socket.join(room,function () {
       var token = opentok.generateToken(sessionId);
       console.log("A student Joined: ", socket.rooms);
       io.in(x).emit('credentials', {tokennum});
