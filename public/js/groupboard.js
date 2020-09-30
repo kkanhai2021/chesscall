@@ -1923,32 +1923,25 @@ var board = Chessboard('myBoard', config)
 
 var sessionId = '';
 var token = '';
-function getRoom() { 
-  var room = document.getElementById("codeGoesHere").value;
-  sessionId = room;
-  getToken();
-  
-}
 
 function getToken() { 
-  socket.emit("get_token", room);
+  socket.emit("", room);
   
 }
 var token= null;
+
 socket.on("studentcredentials", tokennum => {
-  console.log
+  console.log("I received:", tokennum);
   token = tokennum;
+  console.log("I made token: ", token);
   initializeSession();
   
 });
-clicked = false; 
 
 function joinRoom() { 
-  getRoom();
-  console.log(room);
+  var room = document.getElementById("codeGoesHere").value;
+  sessionId = room;
   socket.emit('student_join', room);
-  
-  
 }
 
 
