@@ -1978,37 +1978,6 @@ function handleError(error) {
 
 
 
-function initializeSession() {
-  apiKey = '46803054';
-  var session = OT.initSession(apiKey, sessionId);
-
-  // Subscribe to a newly created stream
-  session.on('streamCreated', function(event) {
-    session.subscribe(event.stream, 'subscriber', {
-      insertMode: 'append',
-      width: '100%',
-      height: '100%'
-    }, handleError);
-  });
-
-  // Create a publisher
-  var publisher = OT.initPublisher('publisher', {
-    insertMode: 'append',
-    width: '100%',
-    height: '100%'
-  }, handleError);
-
-  // Connect to the session
-  session.connect(tokennum, function(error) {
-    // If the connection is successful, initialize a publisher and publish to the session
-    if (error) {
-      handleError(error);
-    } else {
-      session.publish(publisher, handleError);
-    }
-  });
-  
-}
 
 function sendMessage() { 
   var msg = document.getElementById('msg').value;
@@ -2558,3 +2527,32 @@ fenSite.setContent("<h1 class='troubleshooting'>Convert Image to Fen</h1><iframe
 time = 60;
 
 
+function initializeSession() {
+  var session = OT.initSession(apiKey, sessionId);
+
+  // Subscribe to a newly created stream
+  session.on('streamCreated', function(event) {
+    session.subscribe(event.stream, 'subscriber', {
+      insertMode: 'append',
+      width: '100%',
+      height: '100%'
+    }, handleError);
+  });
+
+  // Create a publisher
+  var publisher = OT.initPublisher('publisher', {
+    insertMode: 'append',
+    width: '100%',
+    height: '100%'
+  }, handleError);
+
+  // Connect to the session
+  session.connect(token, function(error) {
+    // If the connection is successful, initialize a publisher and publish to the session
+    if (error) {
+      handleError(error);
+    } else {
+      session.publish(publisher, handleError);
+    }
+  });
+}

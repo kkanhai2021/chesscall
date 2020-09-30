@@ -2343,38 +2343,31 @@ socket.on("stopOppTimer", (room) => {
   startMyTimer();
 });
 
-
 function initializeSession() {
   var session = OT.initSession(apiKey, sessionId);
 
   // Subscribe to a newly created stream
-  session.on('streamCreated', function streamCreated(event) {
-    var subscriberOptions = {
+  session.on('streamCreated', function(event) {
+    session.subscribe(event.stream, 'subscriber', {
       insertMode: 'append',
       width: '100%',
       height: '100%'
-    };
-    session.subscribe(event.stream, 'subscriber', subscriberOptions, handleError);
+    }, handleError);
   });
 
-  session.on('sessionDisconnected', function sessionDisconnected(event) {
-    console.log('You were disconnected from the session.', event.reason);
-  });
-
-  // initialize the publisher
-  var publisherOptions = {
+  // Create a publisher
+  var publisher = OT.initPublisher('publisher', {
     insertMode: 'append',
     width: '100%',
     height: '100%'
-  };
-  var publisher = OT.initPublisher('publisher', publisherOptions, handleError);
+  }, handleError);
 
   // Connect to the session
-  session.connect(token, function callback(error) {
+  session.connect(token, function(error) {
+    // If the connection is successful, initialize a publisher and publish to the session
     if (error) {
       handleError(error);
     } else {
-      // If the connection is successful, publish the publisher to the session
       session.publish(publisher, handleError);
     }
   });
