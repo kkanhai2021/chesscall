@@ -259,7 +259,8 @@
     grid-column: 1;
     border: 3px solid black;
     border-radius: 3px;
-    
+    overflow-y:scroll;
+    overflow-x: hidden;
     
     
 }
