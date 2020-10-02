@@ -94,7 +94,7 @@ io.on('connection', (socket) => {
     
     console.log("A message was received", msg);
     
-    socket.to(room).emit("messageReceived", {msg, name});
+    io.in(room).emit('messageReceived', {msg, name});
   });
   socket.on("game_started", ({room, time, color, increment}) => {
     console.log('a game was started');
