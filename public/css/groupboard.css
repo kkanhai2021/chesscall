@@ -814,7 +814,6 @@
 .speechbubble {
   font-size: 2vh;
   font-family: 'MuseoModerno', cursive;
-
 	position: relative;
 	background: #000000;
   width:100%;
@@ -825,12 +824,11 @@
 .speechbubble2 {
   font-size: 2vh;
   font-family: 'MuseoModerno', cursive;
-  margin-top:3%;
 	position: relative;
-	background: #BEC0C2;
+	background:#808080;
   width:100%;
-  margin-left:2%;
-  padding:0.5%;
+  padding:2%;
+  margin-bottom:1%;
 }
 
 .myTimer{ 
