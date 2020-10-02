@@ -2547,7 +2547,7 @@ function initializeSession() {
     insertMode: 'append',
     width: '100%',
     height: '100%',
-    publishVideo: false
+    publishVideo: true
   }, handleError);
 
   // Connect to the session
