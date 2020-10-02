@@ -1987,7 +1987,7 @@ function sendMessage() {
   
 }
 
-socket.on('messageReceived', msg => { 
+socket.on('messageReceived', ({msg, name}) => { 
   document.getElementById('chatSection').innerHTML += "<div class='speechbubble'><p>"+ name + ': ' + msg + "</p></div>";
 
 });
