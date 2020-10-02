@@ -2378,3 +2378,9 @@ var name = null;
 function getName () { 
   name = document.getElementById('studentname').value;
 }
+
+
+function cameraToggle() { 
+
+  
+}
