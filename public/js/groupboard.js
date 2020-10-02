@@ -1988,7 +1988,7 @@ function sendMessage() {
 }
 
 socket.on('messageReceived', msg => { 
-  document.getElementById('chatSection').innerHTML += "<div class='speechbubble2'><p>"+ ' ' + msg + "</p></div>";
+  document.getElementById('chatSection').innerHTML += "<div class='speechbubble'><p>"+ ' ' + msg + "</p></div>";
 
 });
 var board2 = null;
