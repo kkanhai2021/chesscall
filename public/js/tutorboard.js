@@ -1957,6 +1957,7 @@ socket.on("credentials", ({tokennum, roomnum}) => {
 function startRoom() { 
   alert ("Attempting to start room...")
   initializeSession();
+  
 }  
 
 
@@ -1988,8 +1989,9 @@ function sendMessage() {
   
 }
 
-socket.on('messageReceived', msg => { 
-  document.getElementById('chatSection').innerHTML += "<div class='speechbubble2'><p>"+ '' + msg + "</p></div>";
+socket.on('messageReceived', ({msg, name}) => { 
+  console.log(msg, name);
+  document.getElementById('chatSection').innerHTML += "<div class='speechbubble'><p>"+ name + ': ' + msg + "</p></div>";
 
 });
 
@@ -2555,4 +2557,5 @@ function initializeSession() {
       session.publish(publisher, handleError);
     }
   });
+  session.publishVideo(false);
 }
