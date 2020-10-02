@@ -2381,9 +2381,11 @@ function getName () {
 
 
 function cameraToggle() { 
+  
   function initializeSession() {
     var session = OT.initSession(apiKey, sessionId);
-  
+    session.destroy()
+    var session = OT.initSession(apiKey, sessionId);
     // Subscribe to a newly created stream
     session.on('streamCreated', function(event) {
       session.subscribe(event.stream, 'subscriber', {
