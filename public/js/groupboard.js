@@ -1981,14 +1981,14 @@ function handleError(error) {
 function sendMessage() { 
   var msg = document.getElementById('msg').value;
   
-  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>"
-  socket.emit("incomingMessage", ({room, msg}));
+  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + name +": " + msg + "</p></div>"
+  socket.emit("incomingMessage", ({room, msg, name}));
 
   
 }
 
 socket.on('messageReceived', msg => { 
-  document.getElementById('chatSection').innerHTML += "<div class='speechbubble'><p>"+ ' ' + msg + "</p></div>";
+  document.getElementById('chatSection').innerHTML += "<div class='speechbubble'><p>"+ name + ': ' + msg + "</p></div>";
 
 });
 var board2 = null;
@@ -2019,12 +2019,12 @@ var modal = new tingle.modal({
 
 // set content
 
-modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Paste the code your tutor gave you here.'><div><p class='spacing'>Get started.</p></div>");
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Paste the code your tutor gave you here.'><div><p class='spacing'>Get started.</p></div><input id='studentname' class='edgelord undomove' type ='text' placeholder ='Enter your name.'>");
 
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
     joinRoom();
-    
+    getName();
     modal.close();
 });
 
@@ -2371,4 +2371,9 @@ function initializeSession() {
       session.publish(publisher, handleError);
     }
   });
+}
+
+var name = null;
+function getName () { 
+  name = document.getElementById('studentname').value;
 }

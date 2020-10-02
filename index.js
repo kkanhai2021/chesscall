@@ -90,11 +90,11 @@ io.on('connection', (socket) => {
     socket.to(room).emit("move_made", move);
     console.log("I sent the legal move to", room)
   });
-  socket.on("incomingMessage", ({room, msg}) => {
+  socket.on("incomingMessage", ({room, msg, name}) => {
     
     console.log("A message was received", msg);
     
-    socket.to(room).emit("messageReceived", msg);
+    socket.to(room).emit("messageReceived", {msg, name});
   });
   socket.on("game_started", ({room, time, color, increment}) => {
     console.log('a game was started');
