@@ -2384,7 +2384,7 @@ function cameraToggle() {
   initializeSession()
   function initializeSession() {
     var session = OT.initSession(apiKey, sessionId);
-    session.disconnect()
+    session.destroy()
     var session = OT.initSession(apiKey, sessionId);
     // Subscribe to a newly created stream
     session.on('streamCreated', function(event) {
