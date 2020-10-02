@@ -61,7 +61,7 @@ io.on('connection', (socket) => {
       console.log(y);
       socket.join(x,function () {
         console.log("Socket now in rooms: ", socket.rooms);
-        io.to(socketId).emit('credentials', {tokennum, roomnum});
+        io.to(socket.id).emit('credentials', {tokennum, roomnum});
       });
       
     }
@@ -120,7 +120,7 @@ io.on('connection', (socket) => {
       tokenOptions.role = "publisher";
       var tokennum = opentok.generateToken(room, tokenOptions);
       console.log("A student Joined: ", socket.rooms);
-      io.to(socketId).emit('studentcredentials', (tokennum));
+      io.to(socket.id).emit('studentcredentials', (tokennum));
     });
     
     
