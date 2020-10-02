@@ -2,6 +2,7 @@ var apiKey = "46803054";
 var room = null;
 var token = null;
 var sessionId = null;
+var name = "tutor: "
 var Chess = function(fen) {
   var BLACK = 'b'
   var WHITE = 'w'
@@ -1983,7 +1984,7 @@ function handleError(error) {
 function sendMessage() { 
   var msg = document.getElementById('msg').value;
   
-  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + msg + "</p></div>" + "<p class='name'>John Crasinki</p>"
+  document.getElementById('chatSection').innerHTML += "<div><p class='speechbubble'>" + name + ": " + msg + "</p>"
   socket.emit("incomingMessage", ({room, msg}));
 
   
