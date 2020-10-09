@@ -1944,7 +1944,7 @@ socket.on("studentcredentials", tokennum => {
 });
 
 function joinRoom() { 
-  room = document.getElementById("codeGoesHere").value;
+  room = sessionurl;
   sessionId = room;
   session = OT.initSession("46803054", sessionId);
   socket.emit('student_join', room);
