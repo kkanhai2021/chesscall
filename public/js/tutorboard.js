@@ -2084,11 +2084,6 @@ modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', fu
 
 // add another button
 modal.addFooterBtn('Copy Code', 'tingle-btn tingle-btn--danger copy', function() {
-  document.getElementById('codeGoesHere').value = 'https://chesscall.com/groupboard.html?session=' + sessionId
-  var copyText = document.getElementById("codeGoesHere").value;
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); 
-  document.execCommand("copy");
   navigator.clipboard.writeText('https://chesscall.com/groupboard.html?session=' + sessionId);
   
 });
