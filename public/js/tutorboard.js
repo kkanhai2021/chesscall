@@ -2089,7 +2089,7 @@ modal.addFooterBtn('Copy Code', 'tingle-btn tingle-btn--danger copy', function()
   copyText.select();
   copyText.setSelectionRange(0, 99999); 
   document.execCommand("copy");
-  
+  navigator.clipboard.writeText('https://chesscall.com/groupboard.html?session=' + sessionId);
   
 });
 
