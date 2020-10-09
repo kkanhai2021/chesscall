@@ -2001,7 +2001,7 @@ function togglePopup(){
 }
 function copy() {
   /* Get the text field */
-  var copyText = document.getElementById("codeGoesHere");
+  var Text = document.getElementById("codeGoesHere");
 
   /* Select the text field */
   copyText.select();
@@ -2084,8 +2084,8 @@ modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', fu
 
 // add another button
 modal.addFooterBtn('Copy Code', 'tingle-btn tingle-btn--danger copy', function() {
+  document.getElementById('baby').innerHTML = 'https://chesscall.com/groupboard.html?session=' + sessionId
   var copyText = document.getElementById("baby");
-  
   copyText.select();
   copyText.setSelectionRange(0, 99999); 
   document.execCommand("copy");
