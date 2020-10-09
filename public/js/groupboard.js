@@ -1,5 +1,7 @@
 var room = null;
-
+var sessionurl = window.location.href; 
+var sessionurl = sesssionurl.slice(45, sessionurl.length + 1)
+console.log(sessionurl)
 
 /*
  * Copyright (c) 2020, Jeff Hlywa (jhlywa@gmail.com)
