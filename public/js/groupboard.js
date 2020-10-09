@@ -2022,7 +2022,7 @@ var modal = new tingle.modal({
 
 // set content
 
-modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input style='width:100%; paddding-right: 10%;' type='text' id='codeGoesHere' class='undomove' placeholder='Paste the code your tutor gave you here.'><div><p class='spacing'>Get started.</p></div><input id='studentname' class='edgelord undomove' type ='text' placeholder ='Enter your name.'>");
+modal.setContent("<h1 id='popupTitle'>Welcome to Chesscall</h1><input id='studentname' class='edgelord undomove' type ='text' placeholder ='Enter your name.'>");
 
 // add a button
 modal.addFooterBtn('Begin Lesson', 'tingle-btn tingle-btn--primary startBtn', function() {
